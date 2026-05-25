@@ -1,0 +1,365 @@
+/* kids.immersivefusion.academy — visual identity
+ *
+ * Constraints from SP-065 site shape, SP-069 ADR §Visual identity, and the
+ * existing Boop and Wobble booklet (career-day 2026-05-08). The booklet is
+ * the visual anchor; this stylesheet matches what the printed artifact
+ * already is, not an invented variation.
+ *
+ * No CTAs. No newsletter modal. No exit-intent overlay. No cookie banner.
+ * No "trusted by" strip. No testimonials. No animations on scroll.
+ */
+
+/* ---------- Palette ----------------------------------------------------- */
+
+:root {
+  --kids-teal:        #0e6082;
+  --kids-teal-soft:   #4ab0bf;
+  --kids-wobble:      #4ec5b8;
+}
+
+/* Light scheme: warm cream tint, not pure white. The booklet pages are
+ * functionally white because they're printed, but on a screen pure white
+ * is harsh and reads like a SaaS chrome. A faint cream lifts the page. */
+[data-md-color-scheme="default"] {
+  --kids-page:        #fdfaf3;
+  --kids-card:        #ffffff;
+  --kids-body:        #3a3328;
+  --kids-body-soft:   #6a604f;
+  --kids-rule:        #e6dfd2;
+  --kids-tint:        #f6efe0;
+
+  --md-primary-fg-color:        var(--kids-teal);
+  --md-primary-fg-color--light:  var(--kids-teal-soft);
+  --md-primary-fg-color--dark:   var(--kids-teal);
+  --md-primary-bg-color:         var(--kids-card);
+  --md-primary-bg-color--light:  var(--kids-body-soft);
+  --md-accent-fg-color:          var(--kids-teal);
+  --md-accent-fg-color--transparent: rgba(14, 96, 130, 0.1);
+  --md-default-bg-color:         var(--kids-page);
+  --md-default-fg-color:         var(--kids-body);
+  --md-default-fg-color--light:  var(--kids-body-soft);
+  --md-default-fg-color--lighter: var(--kids-body-soft);
+  --md-default-fg-color--lightest: var(--kids-rule);
+  --md-typeset-color:            var(--kids-body);
+  --md-typeset-a-color:          var(--kids-teal);
+  --md-footer-bg-color:          var(--kids-tint);
+  --md-footer-bg-color--dark:    var(--kids-tint);
+  --md-footer-fg-color:          var(--kids-body);
+  --md-footer-fg-color--light:   var(--kids-body-soft);
+  --md-footer-fg-color--lighter: var(--kids-body-soft);
+}
+
+/* Dark scheme: not slate-black. Warm dark — the booklet voice in a room
+ * with the lights down. Same teal accent so the publication keeps its
+ * color identity across modes. */
+[data-md-color-scheme="kids-dark"] {
+  --kids-page:        #1f1c17;
+  --kids-card:        #26221c;
+  --kids-body:        #ece4d3;
+  --kids-body-soft:   #b0a690;
+  --kids-rule:        #3a342a;
+  --kids-tint:        #2a261f;
+
+  --md-primary-fg-color:        var(--kids-wobble);
+  --md-primary-fg-color--light:  var(--kids-teal-soft);
+  --md-primary-fg-color--dark:   var(--kids-teal);
+  --md-primary-bg-color:         var(--kids-body);
+  --md-primary-bg-color--light:  var(--kids-body-soft);
+  --md-accent-fg-color:          var(--kids-wobble);
+  --md-accent-fg-color--transparent: rgba(78, 197, 184, 0.15);
+  --md-default-bg-color:         var(--kids-page);
+  --md-default-fg-color:         var(--kids-body);
+  --md-default-fg-color--light:  var(--kids-body-soft);
+  --md-default-fg-color--lighter: var(--kids-body-soft);
+  --md-default-fg-color--lightest: var(--kids-rule);
+  --md-typeset-color:            var(--kids-body);
+  --md-typeset-a-color:          var(--kids-wobble);
+  --md-footer-bg-color:          var(--kids-tint);
+  --md-footer-bg-color--dark:    var(--kids-tint);
+  --md-footer-fg-color:          var(--kids-body);
+  --md-footer-fg-color--light:   var(--kids-body-soft);
+  --md-footer-fg-color--lighter: var(--kids-body-soft);
+}
+
+/* Heading color is scheme-dependent: teal on light, wobble-teal on dark. */
+[data-md-color-scheme="default"] .md-typeset h1,
+[data-md-color-scheme="default"] .md-typeset h2,
+[data-md-color-scheme="default"] .md-typeset h3,
+[data-md-color-scheme="default"] .md-typeset h4,
+[data-md-color-scheme="default"] .md-typeset em,
+[data-md-color-scheme="default"] .md-typeset i,
+[data-md-color-scheme="default"] .md-typeset blockquote,
+[data-md-color-scheme="default"] .kids-hero-subtitle {
+  color: var(--kids-teal);
+}
+
+[data-md-color-scheme="kids-dark"] .md-typeset h1,
+[data-md-color-scheme="kids-dark"] .md-typeset h2,
+[data-md-color-scheme="kids-dark"] .md-typeset h3,
+[data-md-color-scheme="kids-dark"] .md-typeset h4,
+[data-md-color-scheme="kids-dark"] .md-typeset em,
+[data-md-color-scheme="kids-dark"] .md-typeset i,
+[data-md-color-scheme="kids-dark"] .md-typeset blockquote,
+[data-md-color-scheme="kids-dark"] .kids-hero-subtitle {
+  color: var(--kids-wobble);
+}
+
+/* ---------- Typography -------------------------------------------------- */
+
+body, .md-typeset {
+  font-family: 'Quicksand', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-header__title,
+.kids-display {
+  font-family: 'Patrick Hand', 'Comic Sans MS', cursive;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.md-typeset h1 {
+  font-size: 2.8rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+.md-typeset h2 {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.md-typeset h3 { font-size: 1.4rem; margin-top: 1.75rem; }
+.md-typeset h4 { font-size: 1.15rem; }
+
+.md-typeset { font-size: 0.85rem; line-height: 1.75; }
+
+/* Reading column: narrow. */
+.md-grid { max-width: 52rem; }
+
+/* The content card sits on top of the cream page with a subtle elevation. */
+.md-content {
+  background-color: var(--kids-card);
+  margin: 1rem 0 2rem;
+  padding: 1.5rem 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(58, 51, 40, 0.04),
+              0 4px 16px rgba(58, 51, 40, 0.05);
+}
+[data-md-color-scheme="kids-dark"] .md-content {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
+              0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Italic for character voice — Wobble, Boop, anyone speaking — picks
+ * up the accent color so the character and the publication share a color. */
+.md-typeset em, .md-typeset i { font-style: italic; }
+
+/* Strong stays body color — narrator emphasis, not shouting. */
+.md-typeset strong, .md-typeset b {
+  color: var(--kids-body);
+  font-weight: 700;
+}
+[data-md-color-scheme="kids-dark"] .md-typeset strong,
+[data-md-color-scheme="kids-dark"] .md-typeset b {
+  color: var(--kids-body);
+}
+
+/* Blockquote: character voice. */
+.md-typeset blockquote {
+  border-left: 3px solid var(--kids-teal-soft);
+  font-style: italic;
+  padding-left: 1.25rem;
+  margin-left: 0;
+  font-size: 1.05em;
+}
+
+/* Links: accent color, soft underline that warms on hover. */
+.md-typeset a {
+  color: var(--md-typeset-a-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--kids-teal-soft);
+  transition: border-color 120ms ease;
+}
+.md-typeset a:hover,
+.md-typeset a:focus {
+  border-bottom-color: currentColor;
+}
+
+/* Horizontal rule: cream tint with a small Wobble-teal dot to mark the
+ * section break. Replaces the booklet's plain rule with a tiny ornament
+ * that does design work and references Wobble's color. */
+.md-typeset hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right,
+    transparent 0%,
+    var(--kids-rule) 20%,
+    var(--kids-rule) 80%,
+    transparent 100%);
+  margin: 3rem auto;
+  width: 80%;
+  position: relative;
+  overflow: visible;
+}
+.md-typeset hr::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--kids-wobble);
+  box-shadow: 0 0 0 4px var(--kids-card);
+}
+
+/* ---------- Page chrome: keep it quiet, but legible -------------------- */
+
+body {
+  background-color: var(--kids-page);
+}
+
+.md-header {
+  background-color: var(--kids-page);
+  color: var(--kids-body);
+  box-shadow: none;
+  border-bottom: 1px solid var(--kids-rule);
+}
+.md-header[data-md-state="shadow"] { box-shadow: none; }
+
+.md-header__title {
+  color: var(--md-typeset-a-color);
+  font-size: 1.15rem;
+  font-weight: 400;
+  font-family: 'Patrick Hand', cursive;
+}
+.md-header__button,
+.md-header__source { color: var(--kids-body); }
+
+/* Tabs: hide. Two-page publication doesn't need them. */
+.md-tabs { display: none; }
+
+/* Sidebar nav */
+.md-sidebar__scrollwrap { background: transparent; }
+.md-nav__title {
+  font-family: 'Patrick Hand', cursive;
+  color: var(--md-typeset-a-color);
+  font-weight: 400;
+  background: transparent;
+  box-shadow: none;
+}
+.md-nav__link { color: var(--kids-body); }
+.md-nav__link--active,
+.md-nav__link:focus,
+.md-nav__link:hover { color: var(--md-typeset-a-color); }
+
+/* Search */
+.md-search__form {
+  background-color: var(--kids-tint);
+}
+.md-search__input,
+.md-search__input::placeholder {
+  color: var(--kids-body-soft);
+}
+
+/* ---------- Footer ----------------------------------------------------- */
+
+.md-footer__inner.md-grid { display: none; }
+.md-footer-meta {
+  background-color: var(--kids-tint);
+  color: var(--kids-body);
+  border-top: 1px solid var(--kids-rule);
+}
+.md-footer-meta__inner {
+  padding: 1.5rem 0.8rem;
+  font-size: 0.72rem;
+  line-height: 1.7;
+}
+.md-footer-meta p { color: var(--kids-body); }
+.md-footer-meta em { color: var(--md-typeset-a-color); }
+.md-footer-meta a {
+  color: var(--md-typeset-a-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--kids-teal-soft);
+}
+.md-footer-meta a:hover { border-bottom-color: currentColor; }
+
+/* ---------- Hero / cover ------------------------------------------------ */
+
+.kids-hero {
+  text-align: center;
+  padding: 0.5rem 0 1rem;
+}
+.kids-hero img {
+  max-width: 30rem;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.kids-hero-subtitle {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.6rem;
+  margin: 0.5rem auto 2rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Suppress glightbox click-to-zoom on the hero cover — it's a decorative
+ * lead image, not a gallery item. Keeps the booklet voice calmer. */
+.kids-hero .glightbox { pointer-events: none; cursor: default; }
+.kids-hero .glightbox::after { display: none; }
+
+/* When a hero is present in the page content, hide the H1 and tag chips
+ * that Material renders above it. The hero image and subtitle do the
+ * title work; the H1 + tag chips would compete with them visually.
+ * Implemented as a CSS sibling rule: any .md-typeset that contains a
+ * .kids-hero suppresses its leading h1 and the preceding tag list. */
+.md-typeset:has(.kids-hero) > h1:first-of-type { display: none; }
+.md-typeset:has(.kids-hero) ~ .md-tags,
+.md-typeset:has(.kids-hero) .md-tags,
+article.md-typeset:has(.kids-hero) > .md-tags { display: none; }
+article:has(.kids-hero) > .md-tags { display: none; }
+
+/* Inline character thumbnails */
+.kids-thumb {
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 2.5rem;
+  margin: 0 0.25rem;
+}
+
+/* ---------- Drift slot (asset gated on ADR Step 1) --------------------- */
+
+.kids-drift {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.08;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kids-drift { display: none; }
+}
+
+/* ---------- Print-friendly --------------------------------------------- */
+
+@media print {
+  .md-header, .md-sidebar, .md-tabs, .md-footer { display: none; }
+  .md-content {
+    background: #fff;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+  }
+  body { color: #000; background: #fff; }
+}

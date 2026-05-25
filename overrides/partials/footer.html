@@ -1,0 +1,18 @@
+{# Footer replacement: institutional byline, license, privacy link.
+   Per SP-069 ADR §Navigation: the footer carries the byline, a link to the
+   privacy notice, and the CC BY-NC 4.0 license declaration. About and
+   Privacy live in the footer (and in the sidebar nav). No mega-menu. #}
+
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <p style="margin: 0;">
+        <em>by Immersive Fusion.</em>
+        Published under
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/"
+           rel="license noopener">Creative Commons BY-NC 4.0</a>.
+        <a href="{{ 'about/' | url }}">What this publication refuses to do.</a>
+      </p>
+    </div>
+  </div>
+</footer>
