@@ -2,9 +2,17 @@
 title: Immersive Fusion Academy — Kids
 diataxis: explanation
 tags: [explanation, landing]
+hide:
+  - navigation
+  - toc
+  - tags
 ---
 
-# A small publication about AI, for kids
+<div class="kids-hero" markdown>
+![Boop, a small cubic robot with a friendly screen face, standing next to Wobble, a teal jelly-blob with a small smile.](media/boop-and-wobble-cover.png){ alt="Boop and Wobble" }
+
+<p class="kids-hero-subtitle">A small publication about AI, for kids.</p>
+</div>
 
 This is the kids' tier of the Immersive Fusion Academy. We write here for kids and the adults near them.
 
@@ -12,7 +20,7 @@ We are an observability company. That means we watch software systems for a livi
 
 ## What lives here
 
-- **Boop and Wobble** — our first booklet, about a robot named Boop and his friend Wobble.
+- **Boop and Wobble** — our first booklet, about a robot named Boop and his sneaky friend Wobble.
 - More booklets to come, when we have something true to say.
 
 ## What you will not find here
@@ -22,7 +30,3 @@ We do not sell anything on these pages. We do not collect your email. We do not 
 ## How to read
 
 You can read in your browser. You can print and fold any booklet. You can ask an adult to read it to you. We made all of these on purpose.
-
----
-
-*by Immersive Fusion*
