@@ -1,0 +1,7 @@
+# SP-071 shared baseline: arrange: + title: convention.
+# index.md is the section landing page. Unlisted files fall through alphabetically.
+
+title: Academy (Kids)
+arrange:
+  - index.md
+  - about.md
