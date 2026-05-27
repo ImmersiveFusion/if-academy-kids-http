@@ -34,6 +34,16 @@
   /* Primary button hover surface. Day mode: deepen toward navy ink. */
   --kids-button-primary-hover-bg: var(--kids-ink);
 
+  /* Pager small-caps label ("PREVIOUS" / "NEXT") on the booklet
+   * footer pager cards. Day mode: brand teal works against the cream
+   * card. */
+  --kids-pager-label: var(--kids-teal);
+
+  /* Card / illustration drop-shadow color (RGB triplet only, alpha set
+   * at each call site). Day mode: navy ink — reads as a soft warm
+   * shadow against the cream page. */
+  --kids-shadow-rgb: 26, 47, 74;
+
   /* Mint hill at the bottom of the viewport */
   --kids-hill:        #b8e6c1;
   --kids-hill-deep:   #8fd09e;
@@ -48,7 +58,7 @@
   --kids-bubble-bg:        #fff4d1;
   --kids-bubble-border:    var(--kids-teal);
   --kids-bubble-shadow:    rgba(14, 96, 130, 0.25);
-  --kids-bubble-shadow-2:  rgba(26, 47, 74, 0.12);
+  --kids-bubble-shadow-2:  rgba(var(--kids-shadow-rgb), 0.12);
 
   /* Header / chrome */
   --kids-header-bg:        var(--kids-card);
@@ -97,6 +107,16 @@
    * the wobble mid-teal) so white text stays readable. Swapping to
    * --kids-ink in night mode would be cream-on-white-text. */
   --kids-button-primary-hover-bg: var(--kids-wobble);
+
+  /* Pager small-caps label. Night mode: brand teal fails WCAG against
+   * the dark card, so use the brighter wobble teal. */
+  --kids-pager-label: var(--kids-wobble);
+
+  /* Card / illustration drop-shadow color. Night mode: pure black —
+   * the day-mode navy is dark-on-dark against the near-black page
+   * and disappears. Black at slightly higher alpha gives the cards
+   * visible depth without looking like a colored glow. */
+  --kids-shadow-rgb: 0, 0, 0;
 
   /* Barely-there horizon line at the very bottom — almost the same as
    * the sky, just slightly cooler/darker. Reads as "edge of distant
@@ -539,8 +559,8 @@ body {
   background-color: var(--kids-card);
   border-radius: 18px;
   padding: 0.9rem 1.1rem;
-  box-shadow: 0 2px 4px rgba(26, 47, 74, 0.05),
-              0 6px 16px rgba(26, 47, 74, 0.08);
+  box-shadow: 0 2px 4px rgba(var(--kids-shadow-rgb), 0.05),
+              0 6px 16px rgba(var(--kids-shadow-rgb), 0.08);
   color: var(--kids-ink) !important;
   opacity: 1;
   transition: transform 140ms ease, box-shadow 140ms ease;
@@ -551,8 +571,8 @@ body {
 .md-footer__link:hover,
 .md-footer__link:focus {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(26, 47, 74, 0.08),
-              0 10px 22px rgba(26, 47, 74, 0.14);
+  box-shadow: 0 4px 8px rgba(var(--kids-shadow-rgb), 0.08),
+              0 10px 22px rgba(var(--kids-shadow-rgb), 0.14);
 }
 
 /* Prev: icon left, title aligned left. Next: title right, icon right. */
@@ -560,12 +580,17 @@ body {
 .md-footer__link--next { flex-direction: row; }
 .md-footer__link--next .md-footer__title { text-align: right; margin-left: auto; }
 
+/* "PREVIOUS" / "NEXT" small caps label above the page title. The
+ * brand teal works on the cream day-mode card; on the dark night-mode
+ * card it fails WCAG contrast (~2.5:1 against #161a26). Per-scheme
+ * --kids-pager-label color: day stays brand teal, night uses the
+ * brighter wobble teal which clears 4.5:1. */
 .md-footer__direction {
   display: block;
   font-family: 'Fredoka', sans-serif;
   font-size: 0.7rem;
   font-weight: 500;
-  color: var(--kids-teal) !important;
+  color: var(--kids-pager-label) !important;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   opacity: 1;
@@ -577,11 +602,19 @@ body {
   flex: 1;
   min-width: 0;
   padding: 0;
+  /* On a stacked (narrow) layout, the prev card's title element can
+   * collapse to zero visual height if no inner block content forces
+   * it. Explicit min-height keeps both cards the same height and
+   * prevents the prev card from appearing empty next to the icon. */
+  min-height: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .md-footer__title .md-ellipsis {
   font-size: 1rem;
   font-weight: 500;
-  color: var(--kids-ink);
+  color: var(--kids-ink) !important;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -660,8 +693,8 @@ body {
   color: var(--kids-ink) !important;
   margin: 0 auto 0.6rem;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(26, 47, 74, 0.04),
-              0 4px 10px rgba(26, 47, 74, 0.06);
+  box-shadow: 0 2px 4px rgba(var(--kids-shadow-rgb), 0.04),
+              0 4px 10px rgba(var(--kids-shadow-rgb), 0.06);
   max-width: 100%;
   width: 100%;
 }
@@ -714,9 +747,38 @@ body {
   border-bottom-color: var(--kids-ink);
 }
 
-/* Pager stacks on narrow screens. */
+/* Pager stacks on narrow screens. Two things this media query needs
+ * to fix that Material's defaults get wrong for a kids' booklet:
+ *
+ * 1. Material hides .md-footer__link--prev .md-footer__title at
+ *    mobile widths (its convention: "prev becomes icon-only on
+ *    mobile, only show the next page title"). For a sequential
+ *    booklet pager that's wrong — readers need to see BOTH
+ *    directions named to know which chapter is back vs. forward.
+ *
+ * 2. When stacked column-wise, the cards default to their natural
+ *    content width rather than the full column width, and prev/next
+ *    end up unequal. Force both to stretch edge-to-edge of the
+ *    parent column so they read as a pair, not two floating cards.
+ *
+ * Also tighten the vertical padding so each card is shorter — they
+ * don't need to be button-sized targets when they're the only thing
+ * at the bottom of the page. */
 @media (max-width: 600px) {
-  .md-footer__inner.md-grid { flex-direction: column; }
+  .md-footer__inner.md-grid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .md-footer__link {
+    width: 100%;
+    padding: 0.65rem 1rem;
+  }
+  .md-footer__link--prev .md-footer__title {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 /* ---------- Hero (Khan-style asymmetric) ------------------------------- */
@@ -758,7 +820,7 @@ body {
   width: 100%;
   max-height: 22rem;
   object-fit: contain;
-  filter: drop-shadow(0 8px 16px rgba(26, 47, 74, 0.12));
+  filter: drop-shadow(0 8px 16px rgba(var(--kids-shadow-rgb), 0.12));
 }
 
 /* Below ~720px: stack vertically, illustration first. */
@@ -846,7 +908,7 @@ article:has(.kids-hero) > .md-tags { display: none; }
   height: auto;
   display: block;
   margin: 0 auto 1.5rem;
-  filter: drop-shadow(0 8px 20px rgba(26, 47, 74, 0.15));
+  filter: drop-shadow(0 8px 20px rgba(var(--kids-shadow-rgb), 0.15));
 }
 .kids-booklet-cover h1 {
   font-family: 'Fredoka', sans-serif;
@@ -909,7 +971,7 @@ article:has(.kids-hero) > .md-tags { display: none; }
   height: auto;
   max-width: 14rem;
   display: block;
-  filter: drop-shadow(0 8px 16px rgba(26, 47, 74, 0.12));
+  filter: drop-shadow(0 8px 16px rgba(var(--kids-shadow-rgb), 0.12));
 }
 
 .kids-booklet-row-text h3 {
