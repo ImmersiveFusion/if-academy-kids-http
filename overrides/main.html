@@ -5,10 +5,29 @@
    The Privacy notice will disclose the Google Fonts request when authored. #}
 
 {% block extrahead %}
+  {# Google Fonts. The Privacy notice will disclose this third-party
+     request when the notice page is authored. #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap">
+
+  {# Favicon family. Material's theme.favicon emits the primary
+     <link rel="icon"> tag using favicon.ico. The rest of the family is
+     declared here:
+       - favicon-96x96   : explicit hi-DPI tab icon hint
+       - apple-touch-icon: iOS / macOS Safari home-screen, 180x180
+       - manifest        : PWA install metadata + Android home-screen icons
+       - theme-color     : address-bar tint on mobile Chrome / Android
+
+     favicon.svg is intentionally NOT declared here — the file is a
+     base64-wrapped raster (205 KB) rather than true vector, so it
+     would deliver worse compression than the 15 KB .ico at the same
+     visual fidelity. Kept on disk for completeness, just not advertised. #}
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ 'favicon-96x96.png' | url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'apple-touch-icon.png' | url }}">
+  <link rel="manifest" href="{{ 'site.webmanifest' | url }}">
+  <meta name="theme-color" content="#0e6082">
 {% endblock %}
 
 {% block announce %}{% endblock %}
