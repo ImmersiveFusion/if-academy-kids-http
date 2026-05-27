@@ -82,9 +82,15 @@ plugins:
       height: auto
       zoomable: true
       draggable: true
-  - git-revision-date-localized:
-      enable_creation_date: true
-      type: timeago
+  # SP-071 baseline deviation: git-revision-date-localized is omitted.
+  # The shared baseline includes it for docs-site stale-content signals;
+  # a kids' picture book doesn't have that problem (Frog and Toad
+  # doesn't have a "last updated" stamp on each page either). Plugin
+  # not loaded so build is faster and no per-page DOM bloat. Re-add if
+  # we ever publish reference content that needs the freshness signal.
+  # - git-revision-date-localized:
+  #     enable_creation_date: true
+  #     type: timeago
   - minify:
       minify_html: true
   - redirects:
