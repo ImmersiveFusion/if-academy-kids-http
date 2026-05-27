@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/serve.json",
+
+  "//": "Server configuration for the npx serve startup command on App Service. The startup command in app01-prod17-if-east-us is 'npx serve /home/site/wwwroot -l 8080'; this file is picked up automatically when present at the served root.",
+
+  "trailingSlash": true,
+  "cleanUrls": false,
+
+  "//trailingSlash": "MkDocs builds with use_directory_urls: True, which produces folder-per-page output (e.g. /booklets/boop-and-wobble-meet/index.html served as /booklets/boop-and-wobble-meet/). When a user types or pastes the URL without the trailing slash, the browser treats the last segment as a file when resolving relative links, breaking every relative href on the page. Forcing trailingSlash: true makes serve redirect /booklets/boop-and-wobble-meet -> /booklets/boop-and-wobble-meet/ so the browser resolves children correctly.",
+
+  "//cleanUrls": "serve defaults to stripping known extensions from URLs (e.g. /downloads/foo.pdf -> /downloads/foo). Disable so PDF and other binary URLs resolve as written."
+}
