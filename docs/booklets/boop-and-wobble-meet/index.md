@@ -14,7 +14,7 @@ hide:
 
 # Boop and Wobble Meet
 
-<p class="kids-booklet-tagline">A small story about a robot, and the friend who tried to throw him off balance. (Book one of the <em>Boop and Wobble</em> series.)</p>
+<p class="kids-booklet-tagline">A small story about a robot, and the friend who tried to throw him off balance.</p>
 
 <div class="kids-booklet-actions" markdown>
 

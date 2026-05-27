@@ -16,8 +16,14 @@ repo_name: if-academy-kids-http
 repo_url: https://github.com/ImmersiveFusion/if-academy-kids-http
 edit_uri: edit/main/docs
 
-# Copyright
-copyright: 'Copyright &copy; 2026 <a href="https://www.immersivefusion.com">Immersive Fusion LLC</a>. Published under <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International</a>.'
+# Copyright / byline. Rendered by Material's partials/copyright.html
+# inside the footer-meta block. HTML is permitted here. The byline,
+# license link, and about link all live here; Material appends its own
+# "Made with Material for MkDocs" attribution line below this. The
+# "Source on GitHub" link belongs in that lower line (see the
+# overrides/partials/footer.html pager-only override), not here in
+# the byline pill.
+copyright: '<em>by Immersive Fusion.</em> Published under <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license noopener">Creative Commons BY-NC 4.0</a> <span class="md-copyright__sep" aria-hidden="true">&middot;</span> <a href="/about/">About</a>'
 
 watch:
   - docs

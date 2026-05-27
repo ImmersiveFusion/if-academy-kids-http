@@ -1,16 +1,21 @@
-{# Footer: keeps Material's next/prev pager (navigation.footer feature)
-   and replaces the meta block with the institutional byline + license +
-   privacy link.
-   Per SP-069 ADR §Navigation: the footer carries the byline, a link to
-   the privacy notice, and the CC BY-NC 4.0 license declaration. About
-   and Privacy live in the footer (and in the sidebar nav). No mega-menu. #}
+{# Footer override: ONLY the pager block is custom-styled. The
+   footer-meta block (byline + license + about + Material attribution)
+   is left to Material's stock partials/copyright.html via the
+   copyright config value in mkdocs.yml. This way the docs site's
+   "Made with Material for MkDocs" attribution comes back automatically
+   and any future Material updates to the meta block are inherited.
+
+   Per SP-069 ADR §Navigation: the footer carries the byline, the
+   license declaration, and the about link. The pager addition is a
+   kids-publication-specific need (sequential booklet chapters) and
+   the only reason this override exists. #}
 
 {% import "partials/language.html" as lang with context %}
 
 <footer class="md-footer">
 
-  {# Material's next/prev pager. Renders when navigation.footer is enabled
-     and the page has a previous or next sibling in the nav. #}
+  {# Custom pager — styled as soft rounded cards in kids.css. Renders
+     when navigation.footer is enabled and the page has siblings. #}
   {% if "navigation.footer" in features %}
     {% if page.previous_page or page.next_page %}
       <nav class="md-footer__inner md-grid" aria-label="{{ lang.t('footer') }}">
@@ -50,16 +55,13 @@
     {% endif %}
   {% endif %}
 
-  {# Institutional byline + license + privacy link. #}
+  {# Footer-meta: delegate to Material's stock partials/copyright.html
+     so the "Made with Material for MkDocs" attribution renders below
+     the byline. The byline + license + about link are configured via
+     the copyright field in mkdocs.yml. #}
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <p>
-        <em>by Immersive Fusion.</em>
-        Published under
-        <a href="https://creativecommons.org/licenses/by-nc/4.0/"
-           rel="license noopener">Creative Commons BY-NC 4.0</a>.
-        <a href="{{ 'about/' | url }}">About</a>
-      </p>
+      {% include "partials/copyright.html" %}
     </div>
   </div>
 

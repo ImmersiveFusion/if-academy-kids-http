@@ -31,6 +31,9 @@
   --kids-rule:        #e8e4d8;
   --kids-tint:        #f5f0e3;
 
+  /* Primary button hover surface. Day mode: deepen toward navy ink. */
+  --kids-button-primary-hover-bg: var(--kids-ink);
+
   /* Mint hill at the bottom of the viewport */
   --kids-hill:        #b8e6c1;
   --kids-hill-deep:   #8fd09e;
@@ -89,6 +92,11 @@
   --kids-body-soft:   #8a8474;
   --kids-rule:        #20242e;
   --kids-tint:        #14171f;
+
+  /* Primary button hover surface. Night mode: BRIGHTEN the teal (toward
+   * the wobble mid-teal) so white text stays readable. Swapping to
+   * --kids-ink in night mode would be cream-on-white-text. */
+  --kids-button-primary-hover-bg: var(--kids-wobble);
 
   /* Barely-there horizon line at the very bottom — almost the same as
    * the sky, just slightly cooler/darker. Reads as "edge of distant
@@ -494,7 +502,7 @@ body {
 .md-footer__inner.md-grid {
   display: flex;
   background: transparent;
-  padding: 1rem 0.8rem;
+  padding: 1rem 0.8rem 0.5rem;
   gap: 1rem;
   max-width: 52rem;
   margin: 0 auto;
@@ -576,23 +584,88 @@ body {
 .md-footer-meta__inner {
   max-width: 52rem;
   margin: 0 auto;
-  padding: 1rem 0.8rem 2rem;
+  padding: 0 0.8rem 2rem;
 }
-.md-footer-meta__inner > p {
+/* Material's stock partials/copyright.html renders:
+ *   <div class="md-copyright">
+ *     <div class="md-copyright__highlight">{{ config.copyright }}</div>
+ *     Made with <a href="...">Material for MkDocs</a>
+ *   </div>
+ *
+ * The highlight block (byline + license + about link) gets the white
+ * pill. The trailing "Made with Material for MkDocs" sits below it
+ * smaller and softer, like the docs site's attribution. */
+/* Material's footer-meta-inner is a flex row by default; override so
+ * the copyright block is centered as a column, not pushed left. */
+.md-footer-meta__inner {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+}
+.md-copyright {
+  color: var(--kids-body-soft) !important;
+  text-align: center;
+  font-size: 0.68rem;
+  line-height: 1.7;
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+.md-copyright a {
+  color: var(--kids-body-soft) !important;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.md-copyright a:hover {
+  color: var(--kids-teal) !important;
+  border-bottom-color: var(--kids-teal-soft);
+}
+
+/* Byline pill: sits directly under the pager cards as a quieter
+ * "third card in the same row family." Same surface, same radius, but
+ * a softer shadow so the pager reads as the active element (it's the
+ * interactive nav) and the byline reads as the footer-of-the-footer.
+ * No vertical gap between the pager and the pill — they're one unit. */
+.md-copyright__highlight {
   background-color: var(--kids-card);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 24px;
-  padding: 0.85rem 1.5rem;
+  border-radius: 18px;
+  padding: 0.7rem 1.5rem;
   font-size: 0.78rem;
   line-height: 1.7;
   color: var(--kids-ink) !important;
-  margin: 0;
+  margin: 0 auto 0.6rem;
   text-align: center;
-  box-shadow: 0 1px 3px rgba(26, 47, 74, 0.06);
+  box-shadow: 0 2px 4px rgba(26, 47, 74, 0.04),
+              0 4px 10px rgba(26, 47, 74, 0.06);
+  max-width: 100%;
+  width: 100%;
 }
-[data-md-color-scheme="default"] .md-footer-meta__inner > p {
+[data-md-color-scheme="default"] .md-copyright__highlight {
   background-color: rgba(255, 255, 255, 0.9);
+}
+.md-copyright__highlight em {
+  color: var(--kids-ink) !important;
+  font-weight: 600;
+  font-style: italic;
+}
+/* Middot separator between the license citation and the About nav link.
+ * Quieter than the surrounding text so the two links read as distinct
+ * items rather than two siblings of a license sentence. */
+.md-copyright__sep {
+  display: inline-block;
+  margin: 0 0.5rem;
+  color: var(--kids-body-soft);
+  opacity: 0.7;
+}
+.md-copyright__highlight a {
+  color: var(--kids-ink) !important;
+  font-weight: 500;
+  border-bottom: 1px solid var(--kids-teal);
+}
+.md-copyright__highlight a:hover {
+  color: var(--kids-teal) !important;
+  border-bottom-color: var(--kids-ink);
 }
 .md-footer-meta em,
 .md-footer-meta__inner em {
@@ -712,7 +785,7 @@ article:has(.kids-hero) > .md-tags { display: none; }
 }
 .kids-button--primary:hover,
 .kids-button--primary:focus {
-  background-color: var(--kids-ink);
+  background-color: var(--kids-button-primary-hover-bg);
   box-shadow: 0 2px 0 var(--kids-ink), 0 8px 18px rgba(14, 96, 130, 0.35);
 }
 
