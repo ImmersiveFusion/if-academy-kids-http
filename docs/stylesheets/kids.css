@@ -39,11 +39,13 @@
   --kids-sun:         #ffc94a;
   --kids-coral:       #ff8a6b;
 
-  /* Speech bubble colors */
-  --kids-bubble-bg:        #ffffff;
-  --kids-bubble-border:    var(--kids-teal-soft);
-  --kids-bubble-shadow:    rgba(74, 176, 191, 0.18);
-  --kids-bubble-shadow-2:  rgba(26, 47, 74, 0.10);
+  /* Speech bubble colors — soft warm-yellow background (Mo Willems
+   * Pigeon-bubble vibe), teal outline, layered teal+navy shadow for
+   * physical presence on the page. */
+  --kids-bubble-bg:        #fff4d1;
+  --kids-bubble-border:    var(--kids-teal);
+  --kids-bubble-shadow:    rgba(14, 96, 130, 0.25);
+  --kids-bubble-shadow-2:  rgba(26, 47, 74, 0.12);
 
   /* Header / chrome */
   --kids-header-bg:        var(--kids-card);
@@ -71,33 +73,36 @@
   --md-footer-fg-color--lighter: var(--kids-body-soft);
 }
 
-/* Night scheme: deep indigo sky, darker forest hill, warm dark cards.
- * Same illustration, same brand teal. Speech bubbles stay light cream
- * so dialogue glows against the night sky like a lit window.
- * Heading "ink" inverts to a soft warm cream so titles read clearly. */
+/* Night scheme: deep indigo sky, lifted card surfaces, a low horizon
+ * line at the very bottom of the viewport. Same illustration, same
+ * brand teal. Speech bubbles stay light cream so dialogue glows against
+ * the night sky like a lit window. Heading "ink" inverts to a soft
+ * warm cream so titles read clearly.
+ *
+ * The day mode's mint hill becomes a near-imperceptible darker stripe
+ * at the bottom — a horizon line, not a meadow. */
 [data-md-color-scheme="kids-night"] {
-  --kids-page:        #0f1a30;   /* deep indigo night sky */
-  --kids-card:        #1a2742;   /* warm-dark card surface, slightly lifted */
+  --kids-page:        #0a0d14;   /* nearly-black with a faint cool tint */
+  --kids-card:        #161a26;   /* card lifts subtly above the page */
   --kids-ink:         #f0e6d2;   /* warm cream — heading color (inverted) */
-  --kids-body:        #e0d8c4;   /* warm cream body text */
-  --kids-body-soft:   #a39c8a;
-  --kids-rule:        #2a3a5a;
-  --kids-tint:        #1f2c48;
+  --kids-body:        #d8d2c2;   /* warm cream body text */
+  --kids-body-soft:   #8a8474;
+  --kids-rule:        #20242e;
+  --kids-tint:        #14171f;
 
-  /* Darker forest hill at the bottom of the viewport */
-  --kids-hill:        #2a4a3a;
-  --kids-hill-deep:   #1b3527;
+  /* Barely-there horizon line at the very bottom — almost the same as
+   * the sky, just slightly cooler/darker. Reads as "edge of distant
+   * land" against the night. */
+  --kids-hill:        #10141d;
+  --kids-hill-deep:   #080b12;
 
-  --kids-sun:         #ffc94a;
-  --kids-coral:       #ff8a6b;
-
-  /* Speech bubbles: warm cream against the dark sky, so dialogue
-   * reads as a "lit window" against the night. Border is the brighter
+  /* Speech bubbles: warm yellow against the night sky, so dialogue
+   * reads as a "lit window" against the dark. Border is the brighter
    * wobble teal so the bubble outline pops on dark. */
-  --kids-bubble-bg:        #f5efe0;
+  --kids-bubble-bg:        #ffe9a8;
   --kids-bubble-border:    var(--kids-wobble);
-  --kids-bubble-shadow:    rgba(78, 197, 184, 0.25);
-  --kids-bubble-shadow-2:  rgba(0, 0, 0, 0.35);
+  --kids-bubble-shadow:    rgba(78, 197, 184, 0.35);
+  --kids-bubble-shadow-2:  rgba(0, 0, 0, 0.45);
 
   /* Header / chrome */
   --kids-header-bg:        #14213a;   /* slightly darker than the card */
@@ -200,8 +205,10 @@ body, .md-typeset {
   padding: 1.5rem 1.75rem;
   margin: 2.25rem 0 2.75rem 2rem;
   font-style: italic;
-  /* Bubble text is always dark navy ink, even in night mode — the
-   * bubble itself is a lit-window cream surface, not a dark surface. */
+  /* Bubble body color is always dark navy ink, even in night mode —
+   * the bubble itself is a lit-window cream surface, not a dark
+   * surface. Italic dialogue text gets its own (more colorful) color
+   * via the em/i rule below. */
   color: #1a2f4a;
   font-size: 1.1em;
   line-height: 1.55;
@@ -209,15 +216,25 @@ body, .md-typeset {
               0 10px 28px var(--kids-bubble-shadow-2);
 }
 
-/* Override speaker label color inside the bubble — needs to stay teal
- * even in night mode, against the cream bubble background, NOT the
- * inverted wobble-teal accent that night mode uses elsewhere. */
-[data-md-color-scheme="kids-night"] .md-typeset blockquote strong {
-  color: var(--kids-teal);
+/* Italic text inside a bubble is the character's spoken line. Render
+ * it dark and heavy against the bright bubble — Mo Willems Pigeon
+ * convention. The bubble is the color; the text is the readability.
+ * Deep navy ink at weight 600 reads instantly against the yellow. */
+.md-typeset blockquote em,
+.md-typeset blockquote i {
+  color: #1a2f4a;
+  font-weight: 600;
 }
-[data-md-color-scheme="kids-night"] .md-typeset blockquote em,
-[data-md-color-scheme="kids-night"] .md-typeset blockquote i {
-  color: #2e2c2a;
+
+/* Bold inside a bubble is either a speaker label (BOOP/WOBBLE in the
+ * comic scene) or an emphasized phrase Wobble shouts. The warm coral
+ * accent against the yellow bubble reads as a shout. */
+.md-typeset blockquote strong,
+.md-typeset blockquote b {
+  font-style: normal;
+  color: var(--kids-coral);
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 /* No tail. Speech bubbles in this booklet have no speaker character
@@ -234,22 +251,10 @@ body, .md-typeset {
 .md-typeset blockquote p:first-child { margin-top: 0; }
 .md-typeset blockquote p:last-child { margin-bottom: 0; }
 
-/* The italicized text inside the bubble stays the soft body color
- * (NOT teal) — the bubble is the character voice marker now, not the
- * italic color. Override the global em-is-teal rule inside blockquotes. */
-.md-typeset blockquote em,
-.md-typeset blockquote i {
-  color: var(--kids-body);
-}
-
-/* Speaker labels in the bonus comic scene (the only place inside
- * blockquotes where bold appears) get the teal accent and a small
- * tracking bump so they read like comic-book labels. */
-.md-typeset blockquote strong {
-  font-style: normal;
-  color: var(--kids-teal);
-  letter-spacing: 0.04em;
-}
+/* (Old "soft body color" italic rule and old "teal speaker label" rule
+ * deleted — they're superseded by the colorful character-voice rules
+ * defined just above with the bubble background. Two duplicates were
+ * stomping the newer rules via source order.) */
 
 /* Callout: standalone punchline that gets the rhetorical weight of a
  * book pull-quote, not a character speech bubble. Big, centered, deep
@@ -314,9 +319,12 @@ body, .md-typeset {
 
 body {
   background: var(--kids-page);
-  /* Soft mint hill pinned to the bottom of the viewport. A two-layer
-   * radial gradient gives the hill a gentle wave shape (rather than a
-   * straight horizon line), and the deeper green sits behind for depth. */
+  /* Soft hill pinned to the bottom of the viewport. A two-layer radial
+   * gradient gives the hill a gentle wave shape (rather than a straight
+   * horizon line), and the deeper hue sits behind for depth.
+   * In day mode this is a mint meadow; in night mode it's a faint
+   * darker horizon line — same shape, different intensity, controlled
+   * by the --kids-hill custom properties per scheme. */
   background-image:
     radial-gradient(ellipse 120% 8rem at 50% 100%,
       var(--kids-hill) 0%,
@@ -329,6 +337,41 @@ body {
   background-attachment: fixed, fixed;
   background-repeat: no-repeat, no-repeat;
   background-position: bottom center, bottom center;
+}
+
+/* Night-only: add stars sprinkled across the sky via additional
+ * radial-gradient layers. Stars are small (1-2px) and stay fixed
+ * during scroll so they read as background sky, not page content.
+ * They sit BEHIND the hill via stacking order in the multi-layer
+ * background. Only rendered in night mode. */
+[data-md-color-scheme="kids-night"] body {
+  background-image:
+    /* hill layers (same as day mode but with night palette) */
+    radial-gradient(ellipse 120% 8rem at 50% 100%,
+      var(--kids-hill) 0%,
+      var(--kids-hill) 60%,
+      transparent 100%),
+    radial-gradient(ellipse 140% 6rem at 50% 100%,
+      var(--kids-hill-deep) 0%,
+      var(--kids-hill-deep) 50%,
+      transparent 100%),
+    /* star field — small white dots scattered across the upper sky.
+     * Each radial-gradient defines one star. */
+    radial-gradient(circle 1px at 12% 18%, rgba(255,255,255,0.65) 100%, transparent 100%),
+    radial-gradient(circle 1.5px at 28% 9%, rgba(255,255,255,0.75) 100%, transparent 100%),
+    radial-gradient(circle 1px at 45% 24%, rgba(255,255,255,0.55) 100%, transparent 100%),
+    radial-gradient(circle 2px at 63% 7%, rgba(255,255,255,0.8) 100%, transparent 100%),
+    radial-gradient(circle 1px at 78% 19%, rgba(255,255,255,0.6) 100%, transparent 100%),
+    radial-gradient(circle 1.5px at 88% 11%, rgba(255,255,255,0.7) 100%, transparent 100%),
+    radial-gradient(circle 1px at 18% 32%, rgba(255,255,255,0.45) 100%, transparent 100%),
+    radial-gradient(circle 1.5px at 55% 38%, rgba(255,255,255,0.5) 100%, transparent 100%),
+    radial-gradient(circle 1px at 72% 30%, rgba(255,255,255,0.55) 100%, transparent 100%),
+    radial-gradient(circle 2px at 8% 6%, rgba(255,210,150,0.85) 100%, transparent 100%),
+    radial-gradient(circle 1px at 38% 4%, rgba(255,255,255,0.6) 100%, transparent 100%),
+    radial-gradient(circle 1.5px at 92% 27%, rgba(255,255,255,0.55) 100%, transparent 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: bottom center;
 }
 
 /* Header: matches the page surface, no shadow, hairline rule. */
@@ -396,9 +439,9 @@ body {
   content: "IF(academy) { kids }";
   font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', 'Menlo', monospace;
   font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--kids-ink);
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   white-space: nowrap;
   display: inline-block;
   vertical-align: middle;
@@ -410,6 +453,7 @@ body {
 
 /* Tabs: hide. */
 .md-tabs { display: none; }
+
 
 /* Sidebar nav */
 .md-sidebar__scrollwrap { background: transparent; }
