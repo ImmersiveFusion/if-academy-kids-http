@@ -377,30 +377,33 @@ body {
   align-items: center;
 }
 
-/* Site title pun: IF(academy) { kids } — see overrides/partials/header.html.
- * The display title is monospace so the code-shape is unmistakable.
- * Brackets get the teal accent so the syntax reads at a glance. */
-.kids-title {
+/* Site title pun: IF(academy) { kids }
+ *
+ * Implemented purely in CSS so Material's stock header runs unmodified
+ * (which means search and palette toggle JS hooks keep working).
+ *
+ * Material's header puts the site_name in:
+ *   .md-header__topic[data-md-component="header-topic"]:first-child .md-ellipsis
+ * and rotates a second topic in for the active page title on scroll.
+ * We hide the first topic's original text and inject the pun via ::after.
+ * The second topic (current page title) is left alone. */
+.md-header__topic:first-child .md-ellipsis {
+  font-size: 0;
+  letter-spacing: 0;
+  position: relative;
+}
+.md-header__topic:first-child .md-ellipsis::after {
+  content: "IF(academy) { kids }";
   font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', 'Menlo', monospace;
-  font-weight: 500;
   font-size: 1.05rem;
+  font-weight: 500;
   color: var(--kids-ink);
   letter-spacing: -0.01em;
   white-space: nowrap;
   display: inline-block;
-  text-decoration: none;
-  border-bottom: none;
-  line-height: 1;
   vertical-align: middle;
+  line-height: 1;
 }
-.kids-title:hover,
-.kids-title:focus {
-  text-decoration: none;
-}
-.kids-title .kids-title-brand { color: var(--kids-teal); font-weight: 700; }
-.kids-title .kids-title-bracket { color: var(--kids-teal); }
-.kids-title .kids-title-academy { color: var(--kids-ink); font-style: italic; }
-.kids-title .kids-title-kids { color: var(--kids-ink); font-weight: 600; }
 
 .md-header__button,
 .md-header__source { color: var(--kids-ink); }
