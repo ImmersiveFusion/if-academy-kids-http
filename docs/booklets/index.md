@@ -16,7 +16,7 @@ Small stories about AI, for kids and the adults near them. Each title in the *Bo
 <div class="kids-booklet-row" markdown>
 
 <div class="kids-booklet-row-art" markdown>
-[![Boop and Wobble Meet cover.](../media/boop-and-wobble-cover.png){ alt="Boop and Wobble Meet" }](boop-and-wobble-meet/index.md)
+![Boop and Wobble Meet cover.](../media/boop-and-wobble-cover.png){ alt="Boop and Wobble Meet" }
 </div>
 
 <div class="kids-booklet-row-text" markdown>

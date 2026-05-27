@@ -296,6 +296,30 @@ body, .md-typeset {
   color: var(--kids-ink);
 }
 
+/* glightbox wraps every <img> in <a class="glightbox" href="..."> at
+ * build time. The wrapping link inherits the global underline rule
+ * above, which paints a sharp teal line under the image. Strip the
+ * underline from glightbox-wrapped image links — the lightbox's own
+ * cursor change carries the affordance, no underline needed. */
+.md-typeset a.glightbox,
+.md-typeset a.glightbox:hover,
+.md-typeset a.glightbox:focus {
+  border-bottom: none;
+  display: inline-block;
+}
+
+/* Gentle bloat on hover for lightbox-wrapped images. Scales the image
+ * itself (not the link) so the hit-target stays put. Matches the
+ * 1.02x scale used on cover lift-ups elsewhere, no Y-translate so the
+ * image grows in place rather than jumping. */
+.md-typeset a.glightbox img {
+  transition: transform 200ms ease;
+}
+.md-typeset a.glightbox:hover img,
+.md-typeset a.glightbox:focus img {
+  transform: scale(1.02);
+}
+
 /* Horizontal rule: a small wobble-dot ornament centered on a faint line. */
 .md-typeset hr {
   border: 0;
@@ -875,21 +899,17 @@ article:has(.kids-hero) > .md-tags { display: none; }
   border-top: 1px solid var(--kids-rule);
 }
 
+/* Booklet-row cover: same quiet treatment as the home-hero cover —
+ * soft drop shadow, no hover-bloat. The cover is decoration that
+ * happens to be a lightboxable picture (click to zoom); the "Read"
+ * button is the navigation. No transform on hover so the picture
+ * doesn't compete with the button for the click-me signal. */
 .kids-booklet-row-art img {
   width: 100%;
   height: auto;
   max-width: 14rem;
   display: block;
-  filter: drop-shadow(0 6px 14px rgba(26, 47, 74, 0.12));
-  transition: transform 160ms ease;
-}
-.kids-booklet-row-art a {
-  border-bottom: none;
-  display: block;
-}
-.kids-booklet-row-art a:hover img,
-.kids-booklet-row-art a:focus img {
-  transform: translateY(-2px) scale(1.02);
+  filter: drop-shadow(0 8px 16px rgba(26, 47, 74, 0.12));
 }
 
 .kids-booklet-row-text h3 {
