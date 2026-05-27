@@ -1,5 +1,5 @@
 ---
-title: Boop and Wobble
+title: Boop and Wobble Meet
 diataxis: explanation
 tags: [booklet, explanation]
 hide:
@@ -10,16 +10,16 @@ hide:
 
 <div class="kids-booklet-cover" markdown>
 
-![Boop, a small cubic robot with a friendly screen face, standing next to Wobble, a teal jelly-blob with a small smile.](../../media/boop-and-wobble-cover.png){ alt="Boop and Wobble" }
+![Boop, a small cubic robot with a friendly screen face, standing next to Wobble, a teal jelly-blob with a small smile.](../../media/boop-and-wobble-cover.png){ alt="Boop and Wobble Meet" }
 
-# Boop and Wobble
+# Boop and Wobble Meet
 
-<p class="kids-booklet-tagline">A small story about a robot, and the friend who tried to throw him off balance.</p>
+<p class="kids-booklet-tagline">A small story about a robot, and the friend who tried to throw him off balance. (Book one of the <em>Boop and Wobble</em> series.)</p>
 
 <div class="kids-booklet-actions" markdown>
 
 [Start reading →](01-why-we-wrote-this-down.md){ .kids-button .kids-button--primary }
-[Download PDF](downloads/boop-and-wobble.pdf){ .kids-button .kids-button--secondary }
+[Download PDF](downloads/boop-and-wobble-meet.pdf){ .kids-button .kids-button--secondary }
 <span class="kids-button kids-button--disabled" title="Coming soon">Print and fold</span>
 
 </div>

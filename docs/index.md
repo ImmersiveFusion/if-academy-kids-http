@@ -16,7 +16,7 @@ hide:
 
 You're going to grow up with AI. So are your friends. We write here to help you think about it — not how to build it, but how to use it well and tell a good one from a wobbly one.
 
-[Start with Boop and Wobble →](booklets/boop-and-wobble/index.md){ .kids-button .kids-button--primary }
+[Start with Boop and Wobble Meet →](booklets/boop-and-wobble-meet/index.md){ .kids-button .kids-button--primary }
 
 </div>
 

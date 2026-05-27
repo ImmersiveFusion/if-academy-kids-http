@@ -6,7 +6,7 @@ tags: [booklet, credits]
 
 # Credits and acknowledgments
 
-*Boop and Wobble* is published by Immersive Fusion LLC under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/). You may copy, print, translate, and share this work for non-commercial purposes, including in classrooms, with attribution to Immersive Fusion.
+*Boop and Wobble Meet* is published by Immersive Fusion LLC under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/). You may copy, print, translate, and share this work for non-commercial purposes, including in classrooms, with attribution to Immersive Fusion.
 
 ## Acknowledgments
 
@@ -24,4 +24,4 @@ The writing in this booklet tries to follow three posture references: Fred Roger
 
 ---
 
-[← Back to Boop and Wobble](index.md)
+[← Back to Boop and Wobble Meet](index.md)

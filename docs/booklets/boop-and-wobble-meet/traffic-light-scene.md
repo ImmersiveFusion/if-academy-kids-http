@@ -100,4 +100,4 @@ tags: [booklet, bonus, scene]
 
 ---
 
-[← Back to Boop and Wobble](index.md)
+[← Back to Boop and Wobble Meet](index.md)
