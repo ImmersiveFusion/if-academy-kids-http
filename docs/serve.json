@@ -8,5 +8,127 @@
 
   "//trailingSlash": "MkDocs builds with use_directory_urls: True, which produces folder-per-page output (e.g. /booklets/boop-and-wobble-meet/index.html served as /booklets/boop-and-wobble-meet/). When a user types or pastes the URL without the trailing slash, the browser treats the last segment as a file when resolving relative links, breaking every relative href on the page. Forcing trailingSlash: true makes serve redirect /booklets/boop-and-wobble-meet -> /booklets/boop-and-wobble-meet/ so the browser resolves children correctly.",
 
-  "//cleanUrls": "serve defaults to stripping known extensions from URLs (e.g. /downloads/foo.pdf -> /downloads/foo). Disable so PDF and other binary URLs resolve as written."
+  "//cleanUrls": "serve defaults to stripping known extensions from URLs (e.g. /downloads/foo.pdf -> /downloads/foo). Disable so PDF and other binary URLs resolve as written.",
+
+  "//headers": "Security headers and Cache-Control rules modeled on spatialobservability.org/public/serve.json. CSP intentionally omitted in this pass — the kids site loads Google Fonts from fonts.googleapis.com/fonts.gstatic.com and Material for MkDocs injects inline styles/scripts for palette and search; CSP needs a Report-Only audit pass before enforcement. Tracked for a follow-up commit.",
+
+  "headers": [
+    {
+      "source": "**/*",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        }
+      ]
+    },
+
+    {
+      "//assets": "MkDocs writes JS and CSS bundles into /assets/ with content-hashed filenames (e.g. assets/javascripts/bundle.83f73b43.min.js). Safe to cache aggressively because the hash changes on every content change.",
+      "source": "assets/**",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+
+    {
+      "//favicon": "Favicon family changes rarely. One-month cache strikes a balance between staleness and request volume.",
+      "source": "favicon.ico",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+
+    {
+      "source": "favicon-96x96.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+
+    {
+      "source": "apple-touch-icon.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+
+    {
+      "source": "web-app-manifest-192x192.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+
+    {
+      "source": "web-app-manifest-512x512.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+
+    {
+      "//webmanifest": "PWA manifest changes occasionally; short cache so updates propagate within an hour.",
+      "source": "site.webmanifest",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+
+    {
+      "//html": "HTML pages should revalidate so content updates are visible within an hour without forcing a full re-fetch on every page load. must-revalidate disallows serving stale.",
+      "source": "**/*.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    }
+  ]
 }
