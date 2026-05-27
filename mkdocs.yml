@@ -2,7 +2,11 @@
 # Same plugin set, same theme features, same conventions as if-apm-documentation-http and the Knowledge Nexus.
 
 # Project information
-site_name: Immersive Fusion Academy (Kids)
+# site_name is the SHORT display label used in the sidebar nav and meta
+# tags. The formal property name ("Immersive Fusion Academy (Kids)" per
+# SP-065 lock) is preserved in copyright, license, and business artifacts;
+# it does not need to be the visible nav label on every page.
+site_name: Kids Academy
 site_url: https://kids.immersivefusion.academy
 site_description: A small publication about AI, written for kids, by an observability company.
 site_author: Immersive Fusion LLC
@@ -30,31 +34,22 @@ theme:
     - navigation.sections
     - navigation.top
     - navigation.tracking
+    - navigation.footer    # next/prev arrows under each booklet page
     - toc.follow
     - search.suggest
     - search.highlight
     - content.code.copy
     - content.tabs.link
   palette:
-    # Light scheme: warm cream tint (not pure white). Companion dark
-    # scheme uses a warm dark page, not slate-black, so the booklet voice
-    # carries into low-light reading. Both schemes share the teal accent
-    # and the Patrick Hand display font; the publication keeps its color
-    # identity across modes.
-    - scheme: default
-      primary: white
-      accent: cyan
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    - scheme: kids-dark
-      primary: white
-      accent: cyan
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
+    # Single light scheme. Picture-book publication does not need a dark
+    # mode (the reference set — Khan Academy Kids, ABCmouse, SplashLearn —
+    # all single-scheme). Removing the toggle reduces visual chrome in
+    # the header and matches the reference aesthetic.
+    scheme: default
+    primary: white
+    accent: cyan
   # Font is set by docs/stylesheets/kids.css (Quicksand body,
-  # Patrick Hand display). Disabled here so Material does not
+  # Fredoka display). Disabled here so Material does not
   # also load Roboto from Google.
   font: false
 
