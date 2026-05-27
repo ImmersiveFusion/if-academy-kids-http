@@ -4,4 +4,6 @@
 title: Academy (Kids)
 arrange:
   - index.md
+  - booklets
   - about.md
+  - commitments.md

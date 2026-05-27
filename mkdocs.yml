@@ -2,7 +2,11 @@
 # Same plugin set, same theme features, same conventions as if-apm-documentation-http and the Knowledge Nexus.
 
 # Project information
-site_name: Immersive Fusion Academy (Kids)
+# site_name is the SHORT display label used in the sidebar nav and meta
+# tags. The formal property name ("Immersive Fusion Academy (Kids)" per
+# SP-065 lock) is preserved in copyright, license, and business artifacts;
+# it does not need to be the visible nav label on every page.
+site_name: Kids Academy
 site_url: https://kids.immersivefusion.academy
 site_description: A small publication about AI, written for kids, by an observability company.
 site_author: Immersive Fusion LLC
@@ -12,8 +16,14 @@ repo_name: if-academy-kids-http
 repo_url: https://github.com/ImmersiveFusion/if-academy-kids-http
 edit_uri: edit/main/docs
 
-# Copyright
-copyright: 'Copyright &copy; 2026 <a href="https://www.immersivefusion.com">Immersive Fusion LLC</a>. Published under <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International</a>.'
+# Copyright / byline. Rendered by Material's partials/copyright.html
+# inside the footer-meta block. HTML is permitted here. The byline,
+# license link, and about link all live here; Material appends its own
+# "Made with Material for MkDocs" attribution line below this. The
+# "Source on GitHub" link belongs in that lower line (see the
+# overrides/partials/footer.html pager-only override), not here in
+# the byline pill.
+copyright: '<em>by Immersive Fusion.</em> Published under <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license noopener">Creative Commons BY-NC 4.0</a> <span class="md-copyright__sep" aria-hidden="true">&middot;</span> <a href="/about/">About</a>'
 
 watch:
   - docs
@@ -23,6 +33,15 @@ watch:
 theme:
   name: material
   custom_dir: overrides
+  # Browser-tab favicon and header logo. The full icon family
+  # (apple-touch-icon, web-app-manifest, theme-color meta) is wired via
+  # the {% block extrahead %} in overrides/main.html.
+  #
+  # favicon.svg is NOT used here — the SVG export is a base64-wrapped
+  # raster, not true vector, so the PNG variants are smaller at the
+  # sizes they actually render at.
+  favicon: favicon.ico
+  logo: favicon-96x96.png
   features:
     # SP-071 shared core, minus navigation.tabs (a two-page kids
     # publication does not need tabs; the storefront-feeling chrome
@@ -30,31 +49,32 @@ theme:
     - navigation.sections
     - navigation.top
     - navigation.tracking
+    - navigation.footer    # next/prev arrows under each booklet page
     - toc.follow
     - search.suggest
     - search.highlight
     - content.code.copy
     - content.tabs.link
   palette:
-    # Light scheme: warm cream tint (not pure white). Companion dark
-    # scheme uses a warm dark page, not slate-black, so the booklet voice
-    # carries into low-light reading. Both schemes share the teal accent
-    # and the Patrick Hand display font; the publication keeps its color
-    # identity across modes.
+    # Two schemes: warm-white "day" (warm white page, mint hill) and
+    # indigo "night" (deep blue sky, darker forest hill, warm dark cards).
+    # Same illustration carries across; speech bubbles stay light so they
+    # glow against the night sky like lit windows. Toggle lives in the
+    # header.
     - scheme: default
       primary: white
       accent: cyan
       toggle:
         icon: material/weather-night
-        name: Switch to dark mode
-    - scheme: kids-dark
+        name: Switch to night
+    - scheme: kids-night
       primary: white
       accent: cyan
       toggle:
         icon: material/weather-sunny
-        name: Switch to light mode
+        name: Switch to day
   # Font is set by docs/stylesheets/kids.css (Quicksand body,
-  # Patrick Hand display). Disabled here so Material does not
+  # Fredoka display). Disabled here so Material does not
   # also load Roboto from Google.
   font: false
 
@@ -77,9 +97,15 @@ plugins:
       height: auto
       zoomable: true
       draggable: true
-  - git-revision-date-localized:
-      enable_creation_date: true
-      type: timeago
+  # SP-071 baseline deviation: git-revision-date-localized is omitted.
+  # The shared baseline includes it for docs-site stale-content signals;
+  # a kids' picture book doesn't have that problem (Frog and Toad
+  # doesn't have a "last updated" stamp on each page either). Plugin
+  # not loaded so build is faster and no per-page DOM bloat. Re-add if
+  # we ever publish reference content that needs the freshness signal.
+  # - git-revision-date-localized:
+  #     enable_creation_date: true
+  #     type: timeago
   - minify:
       minify_html: true
   - redirects:

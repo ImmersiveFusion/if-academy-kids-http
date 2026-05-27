@@ -1,36 +1,73 @@
 /* kids.immersivefusion.academy — visual identity
  *
- * Constraints from SP-065 site shape, SP-069 ADR §Visual identity, and the
- * existing Boop and Wobble booklet (career-day 2026-05-08). The booklet is
- * the visual anchor; this stylesheet matches what the printed artifact
- * already is, not an invented variation.
+ * Reference vocabulary: Khan Academy Kids (the calm version of cute) —
+ * warm white page, soft mint hill at the bottom of the viewport, asymmetric
+ * hero with bouncy display type left and character art right, no card
+ * chrome competing with content. Mister Rogers / Mo Willems / Bob Ross
+ * posture per SP-065. The illustration carries the cute energy; the page
+ * gets out of the way.
  *
  * No CTAs. No newsletter modal. No exit-intent overlay. No cookie banner.
  * No "trusted by" strip. No testimonials. No animations on scroll.
+ * No dark mode (no reference site has one; picture books don't have one).
  */
 
 /* ---------- Palette ----------------------------------------------------- */
 
+/* Brand colors shared across both schemes (day and night). */
 :root {
   --kids-teal:        #0e6082;
   --kids-teal-soft:   #4ab0bf;
   --kids-wobble:      #4ec5b8;
 }
 
-/* Light scheme: warm cream tint, not pure white. The booklet pages are
- * functionally white because they're printed, but on a screen pure white
- * is harsh and reads like a SaaS chrome. A faint cream lifts the page. */
+/* Day scheme: warm white page, mint hill, navy ink. */
 [data-md-color-scheme="default"] {
-  --kids-page:        #fdfaf3;
+  --kids-page:        #fdfbf6;   /* very faint cream; not pure white */
   --kids-card:        #ffffff;
-  --kids-body:        #3a3328;
-  --kids-body-soft:   #6a604f;
-  --kids-rule:        #e6dfd2;
-  --kids-tint:        #f6efe0;
+  --kids-ink:         #1a2f4a;   /* deep navy ink — heading color */
+  --kids-body:        #2e2c2a;
+  --kids-body-soft:   #6a665e;
+  --kids-rule:        #e8e4d8;
+  --kids-tint:        #f5f0e3;
 
-  --md-primary-fg-color:        var(--kids-teal);
+  /* Primary button hover surface. Day mode: deepen toward navy ink. */
+  --kids-button-primary-hover-bg: var(--kids-ink);
+
+  /* Pager small-caps label ("PREVIOUS" / "NEXT") on the booklet
+   * footer pager cards. Day mode: brand teal works against the cream
+   * card. */
+  --kids-pager-label: var(--kids-teal);
+
+  /* Card / illustration drop-shadow color (RGB triplet only, alpha set
+   * at each call site). Day mode: navy ink — reads as a soft warm
+   * shadow against the cream page. */
+  --kids-shadow-rgb: 26, 47, 74;
+
+  /* Mint hill at the bottom of the viewport */
+  --kids-hill:        #b8e6c1;
+  --kids-hill-deep:   #8fd09e;
+
+  /* Sun-on-the-page warm accents */
+  --kids-sun:         #ffc94a;
+  --kids-coral:       #ff8a6b;
+
+  /* Speech bubble colors — soft warm-yellow background (Mo Willems
+   * Pigeon-bubble vibe), teal outline, layered teal+navy shadow for
+   * physical presence on the page. */
+  --kids-bubble-bg:        #fff4d1;
+  --kids-bubble-border:    var(--kids-teal);
+  --kids-bubble-shadow:    rgba(14, 96, 130, 0.25);
+  --kids-bubble-shadow-2:  rgba(var(--kids-shadow-rgb), 0.12);
+
+  /* Header / chrome */
+  --kids-header-bg:        var(--kids-card);
+  --kids-search-bg:        var(--kids-tint);
+  --kids-button-secondary-bg:  var(--kids-tint);
+
+  --md-primary-fg-color:        var(--kids-ink);
   --md-primary-fg-color--light:  var(--kids-teal-soft);
-  --md-primary-fg-color--dark:   var(--kids-teal);
+  --md-primary-fg-color--dark:   var(--kids-ink);
   --md-primary-bg-color:         var(--kids-card);
   --md-primary-bg-color--light:  var(--kids-body-soft);
   --md-accent-fg-color:          var(--kids-teal);
@@ -42,31 +79,71 @@
   --md-default-fg-color--lightest: var(--kids-rule);
   --md-typeset-color:            var(--kids-body);
   --md-typeset-a-color:          var(--kids-teal);
-  --md-footer-bg-color:          var(--kids-tint);
-  --md-footer-bg-color--dark:    var(--kids-tint);
+  --md-footer-bg-color:          transparent;
+  --md-footer-bg-color--dark:    transparent;
   --md-footer-fg-color:          var(--kids-body);
   --md-footer-fg-color--light:   var(--kids-body-soft);
   --md-footer-fg-color--lighter: var(--kids-body-soft);
 }
 
-/* Dark scheme: not slate-black. Warm dark — the booklet voice in a room
- * with the lights down. Same teal accent so the publication keeps its
- * color identity across modes. */
-[data-md-color-scheme="kids-dark"] {
-  --kids-page:        #1f1c17;
-  --kids-card:        #26221c;
-  --kids-body:        #ece4d3;
-  --kids-body-soft:   #b0a690;
-  --kids-rule:        #3a342a;
-  --kids-tint:        #2a261f;
+/* Night scheme: deep indigo sky, lifted card surfaces, a low horizon
+ * line at the very bottom of the viewport. Same illustration, same
+ * brand teal. Speech bubbles stay light cream so dialogue glows against
+ * the night sky like a lit window. Heading "ink" inverts to a soft
+ * warm cream so titles read clearly.
+ *
+ * The day mode's mint hill becomes a near-imperceptible darker stripe
+ * at the bottom — a horizon line, not a meadow. */
+[data-md-color-scheme="kids-night"] {
+  --kids-page:        #0a0d14;   /* nearly-black with a faint cool tint */
+  --kids-card:        #161a26;   /* card lifts subtly above the page */
+  --kids-ink:         #f0e6d2;   /* warm cream — heading color (inverted) */
+  --kids-body:        #d8d2c2;   /* warm cream body text */
+  --kids-body-soft:   #8a8474;
+  --kids-rule:        #20242e;
+  --kids-tint:        #14171f;
+
+  /* Primary button hover surface. Night mode: BRIGHTEN the teal (toward
+   * the wobble mid-teal) so white text stays readable. Swapping to
+   * --kids-ink in night mode would be cream-on-white-text. */
+  --kids-button-primary-hover-bg: var(--kids-wobble);
+
+  /* Pager small-caps label. Night mode: brand teal fails WCAG against
+   * the dark card, so use the brighter wobble teal. */
+  --kids-pager-label: var(--kids-wobble);
+
+  /* Card / illustration drop-shadow color. Night mode: pure black —
+   * the day-mode navy is dark-on-dark against the near-black page
+   * and disappears. Black at slightly higher alpha gives the cards
+   * visible depth without looking like a colored glow. */
+  --kids-shadow-rgb: 0, 0, 0;
+
+  /* Barely-there horizon line at the very bottom — almost the same as
+   * the sky, just slightly cooler/darker. Reads as "edge of distant
+   * land" against the night. */
+  --kids-hill:        #10141d;
+  --kids-hill-deep:   #080b12;
+
+  /* Speech bubbles: warm yellow against the night sky, so dialogue
+   * reads as a "lit window" against the dark. Border is the brighter
+   * wobble teal so the bubble outline pops on dark. */
+  --kids-bubble-bg:        #ffe9a8;
+  --kids-bubble-border:    var(--kids-wobble);
+  --kids-bubble-shadow:    rgba(78, 197, 184, 0.35);
+  --kids-bubble-shadow-2:  rgba(0, 0, 0, 0.45);
+
+  /* Header / chrome */
+  --kids-header-bg:        #14213a;   /* slightly darker than the card */
+  --kids-search-bg:        #1f2c48;
+  --kids-button-secondary-bg:  #1f2c48;
 
   --md-primary-fg-color:        var(--kids-wobble);
   --md-primary-fg-color--light:  var(--kids-teal-soft);
   --md-primary-fg-color--dark:   var(--kids-teal);
-  --md-primary-bg-color:         var(--kids-body);
+  --md-primary-bg-color:         var(--kids-card);
   --md-primary-bg-color--light:  var(--kids-body-soft);
   --md-accent-fg-color:          var(--kids-wobble);
-  --md-accent-fg-color--transparent: rgba(78, 197, 184, 0.15);
+  --md-accent-fg-color--transparent: rgba(78, 197, 184, 0.18);
   --md-default-bg-color:         var(--kids-page);
   --md-default-fg-color:         var(--kids-body);
   --md-default-fg-color--light:  var(--kids-body-soft);
@@ -74,34 +151,11 @@
   --md-default-fg-color--lightest: var(--kids-rule);
   --md-typeset-color:            var(--kids-body);
   --md-typeset-a-color:          var(--kids-wobble);
-  --md-footer-bg-color:          var(--kids-tint);
-  --md-footer-bg-color--dark:    var(--kids-tint);
+  --md-footer-bg-color:          transparent;
+  --md-footer-bg-color--dark:    transparent;
   --md-footer-fg-color:          var(--kids-body);
   --md-footer-fg-color--light:   var(--kids-body-soft);
   --md-footer-fg-color--lighter: var(--kids-body-soft);
-}
-
-/* Heading color is scheme-dependent: teal on light, wobble-teal on dark. */
-[data-md-color-scheme="default"] .md-typeset h1,
-[data-md-color-scheme="default"] .md-typeset h2,
-[data-md-color-scheme="default"] .md-typeset h3,
-[data-md-color-scheme="default"] .md-typeset h4,
-[data-md-color-scheme="default"] .md-typeset em,
-[data-md-color-scheme="default"] .md-typeset i,
-[data-md-color-scheme="default"] .md-typeset blockquote,
-[data-md-color-scheme="default"] .kids-hero-subtitle {
-  color: var(--kids-teal);
-}
-
-[data-md-color-scheme="kids-dark"] .md-typeset h1,
-[data-md-color-scheme="kids-dark"] .md-typeset h2,
-[data-md-color-scheme="kids-dark"] .md-typeset h3,
-[data-md-color-scheme="kids-dark"] .md-typeset h4,
-[data-md-color-scheme="kids-dark"] .md-typeset em,
-[data-md-color-scheme="kids-dark"] .md-typeset i,
-[data-md-color-scheme="kids-dark"] .md-typeset blockquote,
-[data-md-color-scheme="kids-dark"] .kids-hero-subtitle {
-  color: var(--kids-wobble);
 }
 
 /* ---------- Typography -------------------------------------------------- */
@@ -118,82 +172,175 @@ body, .md-typeset {
 .md-typeset h4,
 .md-header__title,
 .kids-display {
-  font-family: 'Patrick Hand', 'Comic Sans MS', cursive;
-  font-weight: 400;
-  letter-spacing: 0.01em;
+  font-family: 'Fredoka', 'Patrick Hand', 'Comic Sans MS', system-ui, sans-serif;
+  font-weight: 600;
+  color: var(--kids-ink);
+  letter-spacing: -0.005em;
   line-height: 1.15;
 }
 
 .md-typeset h1 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   margin-top: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
 }
 .md-typeset h2 {
   font-size: 2rem;
   margin-top: 2.5rem;
   margin-bottom: 0.75rem;
+  font-weight: 500;
 }
-.md-typeset h3 { font-size: 1.4rem; margin-top: 1.75rem; }
-.md-typeset h4 { font-size: 1.15rem; }
+.md-typeset h3 { font-size: 1.5rem; margin-top: 1.75rem; font-weight: 500; }
+.md-typeset h4 { font-size: 1.2rem; font-weight: 500; }
 
 .md-typeset { font-size: 0.85rem; line-height: 1.75; }
 
-/* Reading column: narrow. */
+/* Reading column: narrow. Picture-book width, not docs width. */
 .md-grid { max-width: 52rem; }
 
-/* The content card sits on top of the cream page with a subtle elevation. */
+/* No card chrome on content. The page is the canvas. */
 .md-content {
-  background-color: var(--kids-card);
+  background-color: transparent;
   margin: 1rem 0 2rem;
-  padding: 1.5rem 2rem 3rem;
-  border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(58, 51, 40, 0.04),
-              0 4px 16px rgba(58, 51, 40, 0.05);
-}
-[data-md-color-scheme="kids-dark"] .md-content {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
-              0 4px 16px rgba(0, 0, 0, 0.25);
+  padding: 1rem 1.5rem 4rem;
 }
 
-/* Italic for character voice — Wobble, Boop, anyone speaking — picks
- * up the accent color so the character and the publication share a color. */
-.md-typeset em, .md-typeset i { font-style: italic; }
+/* Italic for character voice — Wobble, Boop, anyone speaking. */
+.md-typeset em, .md-typeset i {
+  font-style: italic;
+  color: var(--kids-teal);
+}
 
 /* Strong stays body color — narrator emphasis, not shouting. */
 .md-typeset strong, .md-typeset b {
-  color: var(--kids-body);
+  color: var(--kids-ink);
   font-weight: 700;
 }
-[data-md-color-scheme="kids-dark"] .md-typeset strong,
-[data-md-color-scheme="kids-dark"] .md-typeset b {
-  color: var(--kids-body);
-}
 
-/* Blockquote: character voice. */
+/* Blockquote: full-on speech bubble. White fill against the cream page
+ * for high contrast, deeply rounded "pill" corners, prominent stem that
+ * actually looks like a speech tail (a teardrop pointing down-left),
+ * and a soft drop shadow that gives the bubble physical presence.
+ *
+ * Larger top/bottom margins so each bubble feels like its own beat in
+ * the conversation, not part of a wall of text. */
 .md-typeset blockquote {
-  border-left: 3px solid var(--kids-teal-soft);
+  position: relative;
+  background: var(--kids-bubble-bg);
+  border: 2px solid var(--kids-bubble-border);
+  border-radius: 28px;
+  padding: 1.5rem 1.75rem;
+  margin: 2.25rem 0 2.75rem 2rem;
   font-style: italic;
-  padding-left: 1.25rem;
-  margin-left: 0;
-  font-size: 1.05em;
+  /* Bubble body color is always dark navy ink, even in night mode —
+   * the bubble itself is a lit-window cream surface, not a dark
+   * surface. Italic dialogue text gets its own (more colorful) color
+   * via the em/i rule below. */
+  color: #1a2f4a;
+  font-size: 1.1em;
+  line-height: 1.55;
+  box-shadow: 0 6px 0 var(--kids-bubble-shadow),
+              0 10px 28px var(--kids-bubble-shadow-2);
 }
 
-/* Links: accent color, soft underline that warms on hover. */
+/* Italic text inside a bubble is the character's spoken line. Render
+ * it dark and heavy against the bright bubble — Mo Willems Pigeon
+ * convention. The bubble is the color; the text is the readability.
+ * Deep navy ink at weight 600 reads instantly against the yellow. */
+.md-typeset blockquote em,
+.md-typeset blockquote i {
+  color: #1a2f4a;
+  font-weight: 600;
+}
+
+/* Bold inside a bubble is either a speaker label (BOOP/WOBBLE in the
+ * comic scene) or an emphasized phrase Wobble shouts. The warm coral
+ * accent against the yellow bubble reads as a shout. */
+.md-typeset blockquote strong,
+.md-typeset blockquote b {
+  font-style: normal;
+  color: var(--kids-coral);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+/* No tail. Speech bubbles in this booklet have no speaker character
+ * positioned below or beside them — the narrator references "Wobble"
+ * or "Sam" in the prose around the bubble. A tail pointing at empty
+ * paragraph text would lie about where the speaker is. The bubble
+ * shape, rounded corners, and outlined border do enough work on their
+ * own to signal "spoken line." Tail returns if we ever add per-bubble
+ * character avatars. */
+
+.md-typeset blockquote p {
+  margin: 0.35em 0;
+}
+.md-typeset blockquote p:first-child { margin-top: 0; }
+.md-typeset blockquote p:last-child { margin-bottom: 0; }
+
+/* (Old "soft body color" italic rule and old "teal speaker label" rule
+ * deleted — they're superseded by the colorful character-voice rules
+ * defined just above with the bubble background. Two duplicates were
+ * stomping the newer rules via source order.) */
+
+/* Callout: standalone punchline that gets the rhetorical weight of a
+ * book pull-quote, not a character speech bubble. Big, centered, deep
+ * ink color, the Fredoka display face. Used for the booklet's
+ * "Where's the Wobble?" moment. */
+.md-typeset .kids-callout,
+.kids-callout {
+  font-family: 'Fredoka', 'Patrick Hand', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--kids-teal);
+  text-align: center;
+  line-height: 1.2;
+  margin: 2.5rem auto;
+  padding: 0;
+  max-width: 32rem;
+  letter-spacing: -0.005em;
+}
+
+/* Links: soft underline, brand teal on hover. */
 .md-typeset a {
   color: var(--md-typeset-a-color);
   text-decoration: none;
   border-bottom: 1px solid var(--kids-teal-soft);
-  transition: border-color 120ms ease;
+  transition: border-color 120ms ease, color 120ms ease;
 }
 .md-typeset a:hover,
 .md-typeset a:focus {
   border-bottom-color: currentColor;
+  color: var(--kids-ink);
 }
 
-/* Horizontal rule: cream tint with a small Wobble-teal dot to mark the
- * section break. Replaces the booklet's plain rule with a tiny ornament
- * that does design work and references Wobble's color. */
+/* glightbox wraps every <img> in <a class="glightbox" href="..."> at
+ * build time. The wrapping link inherits the global underline rule
+ * above, which paints a sharp teal line under the image. Strip the
+ * underline from glightbox-wrapped image links — the lightbox's own
+ * cursor change carries the affordance, no underline needed. */
+.md-typeset a.glightbox,
+.md-typeset a.glightbox:hover,
+.md-typeset a.glightbox:focus {
+  border-bottom: none;
+  display: inline-block;
+}
+
+/* Gentle bloat on hover for lightbox-wrapped images. Scales the image
+ * itself (not the link) so the hit-target stays put. Matches the
+ * 1.02x scale used on cover lift-ups elsewhere, no Y-translate so the
+ * image grows in place rather than jumping. */
+.md-typeset a.glightbox img {
+  transition: transform 200ms ease;
+}
+.md-typeset a.glightbox:hover img,
+.md-typeset a.glightbox:focus img {
+  transform: scale(1.02);
+}
+
+/* Horizontal rule: a small wobble-dot ornament centered on a faint line. */
 .md-typeset hr {
   border: 0;
   height: 1px;
@@ -217,118 +364,647 @@ body, .md-typeset {
   height: 9px;
   border-radius: 50%;
   background: var(--kids-wobble);
-  box-shadow: 0 0 0 4px var(--kids-card);
+  box-shadow: 0 0 0 4px var(--kids-page);
 }
 
-/* ---------- Page chrome: keep it quiet, but legible -------------------- */
+/* ---------- Page chrome: white page + mint hill ------------------------ */
 
 body {
-  background-color: var(--kids-page);
+  background: var(--kids-page);
+  /* Soft hill pinned to the bottom of the viewport. A two-layer radial
+   * gradient gives the hill a gentle wave shape (rather than a straight
+   * horizon line), and the deeper hue sits behind for depth.
+   * In day mode this is a mint meadow; in night mode it's a faint
+   * darker horizon line — same shape, different intensity, controlled
+   * by the --kids-hill custom properties per scheme. */
+  background-image:
+    radial-gradient(ellipse 120% 8rem at 50% 100%,
+      var(--kids-hill) 0%,
+      var(--kids-hill) 60%,
+      transparent 100%),
+    radial-gradient(ellipse 140% 6rem at 50% 100%,
+      var(--kids-hill-deep) 0%,
+      var(--kids-hill-deep) 50%,
+      transparent 100%);
+  background-attachment: fixed, fixed;
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom center, bottom center;
 }
 
-.md-header {
-  background-color: var(--kids-page);
-  color: var(--kids-body);
-  box-shadow: none;
-  border-bottom: 1px solid var(--kids-rule);
+/* Night-only: add stars sprinkled across the sky via additional
+ * radial-gradient layers. Stars are small (1-2px) and stay fixed
+ * during scroll so they read as background sky, not page content.
+ * They sit BEHIND the hill via stacking order in the multi-layer
+ * background. Only rendered in night mode. */
+[data-md-color-scheme="kids-night"] body {
+  background-image:
+    /* hill layers (same as day mode but with night palette) */
+    radial-gradient(ellipse 120% 8rem at 50% 100%,
+      var(--kids-hill) 0%,
+      var(--kids-hill) 60%,
+      transparent 100%),
+    radial-gradient(ellipse 140% 6rem at 50% 100%,
+      var(--kids-hill-deep) 0%,
+      var(--kids-hill-deep) 50%,
+      transparent 100%),
+    /* star field — small white dots scattered across the upper sky.
+     * Each radial-gradient defines one star. */
+    radial-gradient(circle 1px at 12% 18%, rgba(255,255,255,0.65) 100%, transparent 100%),
+    radial-gradient(circle 1.5px at 28% 9%, rgba(255,255,255,0.75) 100%, transparent 100%),
+    radial-gradient(circle 1px at 45% 24%, rgba(255,255,255,0.55) 100%, transparent 100%),
+    radial-gradient(circle 2px at 63% 7%, rgba(255,255,255,0.8) 100%, transparent 100%),
+    radial-gradient(circle 1px at 78% 19%, rgba(255,255,255,0.6) 100%, transparent 100%),
+    radial-gradient(circle 1.5px at 88% 11%, rgba(255,255,255,0.7) 100%, transparent 100%),
+    radial-gradient(circle 1px at 18% 32%, rgba(255,255,255,0.45) 100%, transparent 100%),
+    radial-gradient(circle 1.5px at 55% 38%, rgba(255,255,255,0.5) 100%, transparent 100%),
+    radial-gradient(circle 1px at 72% 30%, rgba(255,255,255,0.55) 100%, transparent 100%),
+    radial-gradient(circle 2px at 8% 6%, rgba(255,210,150,0.85) 100%, transparent 100%),
+    radial-gradient(circle 1px at 38% 4%, rgba(255,255,255,0.6) 100%, transparent 100%),
+    radial-gradient(circle 1.5px at 92% 27%, rgba(255,255,255,0.55) 100%, transparent 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: bottom center;
 }
-.md-header[data-md-state="shadow"] { box-shadow: none; }
+
+/* Header: matches the page surface, no shadow, hairline rule. */
+.md-header,
+.md-header--shadow,
+.md-header--lifted {
+  background-color: var(--kids-header-bg) !important;
+  color: var(--kids-ink);
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--kids-rule);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.md-header[data-md-state="shadow"] { box-shadow: none !important; }
+
+/* Tighten the gap between logo and title, baseline-align them. */
+.md-header__inner {
+  align-items: center;
+  padding-left: 0.5rem;
+}
+.md-logo {
+  padding: 0.4rem;
+}
+.md-logo img,
+.md-logo svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 
 .md-header__title {
-  color: var(--md-typeset-a-color);
-  font-size: 1.15rem;
-  font-weight: 400;
-  font-family: 'Patrick Hand', cursive;
+  color: var(--kids-ink);
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: 'Fredoka', sans-serif;
+  margin-left: 0;
+  display: flex;
+  align-items: center;
 }
-.md-header__button,
-.md-header__source { color: var(--kids-body); }
+.md-header__ellipsis {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.md-header__topic {
+  display: flex;
+  align-items: center;
+}
 
-/* Tabs: hide. Two-page publication doesn't need them. */
+/* Site title pun: IF(academy) { kids }
+ *
+ * Implemented purely in CSS so Material's stock header runs unmodified
+ * (which means search and palette toggle JS hooks keep working).
+ *
+ * Material's header puts the site_name in:
+ *   .md-header__topic[data-md-component="header-topic"]:first-child .md-ellipsis
+ * and rotates a second topic in for the active page title on scroll.
+ * We hide the first topic's original text and inject the pun via ::after.
+ * The second topic (current page title) is left alone. */
+.md-header__topic:first-child .md-ellipsis {
+  font-size: 0;
+  letter-spacing: 0;
+  position: relative;
+}
+.md-header__topic:first-child .md-ellipsis::after {
+  content: "IF(academy) { kids }";
+  font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', 'Menlo', monospace;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--kids-ink);
+  letter-spacing: 0;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.md-header__button,
+.md-header__source { color: var(--kids-ink); }
+
+/* Tabs: hide. */
 .md-tabs { display: none; }
+
 
 /* Sidebar nav */
 .md-sidebar__scrollwrap { background: transparent; }
 .md-nav__title {
-  font-family: 'Patrick Hand', cursive;
-  color: var(--md-typeset-a-color);
-  font-weight: 400;
+  font-family: 'Fredoka', sans-serif;
+  color: var(--kids-ink);
+  font-weight: 500;
   background: transparent;
   box-shadow: none;
 }
 .md-nav__link { color: var(--kids-body); }
 .md-nav__link--active,
 .md-nav__link:focus,
-.md-nav__link:hover { color: var(--md-typeset-a-color); }
+.md-nav__link:hover { color: var(--kids-teal); }
 
 /* Search */
 .md-search__form {
-  background-color: var(--kids-tint);
+  background-color: var(--kids-search-bg);
+  border-radius: 999px;
 }
 .md-search__input,
 .md-search__input::placeholder {
   color: var(--kids-body-soft);
 }
 
-/* ---------- Footer ----------------------------------------------------- */
+/* ---------- Footer: next/prev pager + institutional byline ------------- */
 
-.md-footer__inner.md-grid { display: none; }
-.md-footer-meta {
-  background-color: var(--kids-tint);
-  color: var(--kids-body);
-  border-top: 1px solid var(--kids-rule);
+.md-footer {
+  background: transparent;
+  margin-top: 3rem;
 }
-.md-footer-meta__inner {
-  padding: 1.5rem 0.8rem;
-  font-size: 0.72rem;
-  line-height: 1.7;
-}
-.md-footer-meta p { color: var(--kids-body); }
-.md-footer-meta em { color: var(--md-typeset-a-color); }
-.md-footer-meta a {
-  color: var(--md-typeset-a-color);
-  text-decoration: none;
-  border-bottom: 1px solid var(--kids-teal-soft);
-}
-.md-footer-meta a:hover { border-bottom-color: currentColor; }
 
-/* ---------- Hero / cover ------------------------------------------------ */
-
-.kids-hero {
-  text-align: center;
-  padding: 0.5rem 0 1rem;
-}
-.kids-hero img {
-  max-width: 30rem;
-  width: 100%;
-  height: auto;
-  display: block;
+/* The inner grid holds the next/prev navigation arrows that Material
+ * renders under each page when navigation.footer is enabled. We keep it
+ * visible (it's the picture-book pager) and re-style it as soft rounded
+ * cards that don't fight the page. Sits ABOVE the mint hill in the
+ * normal content flow so it reads as part of the page, not the chrome. */
+.md-footer__inner.md-grid {
+  display: flex;
+  background: transparent;
+  padding: 1rem 0.8rem 0.5rem;
+  gap: 1rem;
+  max-width: 52rem;
   margin: 0 auto;
 }
-.kids-hero-subtitle {
-  font-family: 'Patrick Hand', cursive;
-  font-size: 1.6rem;
-  margin: 0.5rem auto 2rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
+
+.md-footer__link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--kids-card);
+  border-radius: 18px;
+  padding: 0.9rem 1.1rem;
+  box-shadow: 0 2px 4px rgba(var(--kids-shadow-rgb), 0.05),
+              0 6px 16px rgba(var(--kids-shadow-rgb), 0.08);
+  color: var(--kids-ink) !important;
+  opacity: 1;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+  flex: 1;
+  min-width: 0;
+  text-decoration: none;
+}
+.md-footer__link:hover,
+.md-footer__link:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(var(--kids-shadow-rgb), 0.08),
+              0 10px 22px rgba(var(--kids-shadow-rgb), 0.14);
 }
 
-/* Suppress glightbox click-to-zoom on the hero cover — it's a decorative
- * lead image, not a gallery item. Keeps the booklet voice calmer. */
-.kids-hero .glightbox { pointer-events: none; cursor: default; }
-.kids-hero .glightbox::after { display: none; }
+/* Prev: icon left, title aligned left. Next: title right, icon right. */
+.md-footer__link--prev .md-footer__title { text-align: left; }
+.md-footer__link--next { flex-direction: row; }
+.md-footer__link--next .md-footer__title { text-align: right; margin-left: auto; }
 
-/* When a hero is present in the page content, hide the H1 and tag chips
- * that Material renders above it. The hero image and subtitle do the
- * title work; the H1 + tag chips would compete with them visually.
- * Implemented as a CSS sibling rule: any .md-typeset that contains a
- * .kids-hero suppresses its leading h1 and the preceding tag list. */
+/* "PREVIOUS" / "NEXT" small caps label above the page title. The
+ * brand teal works on the cream day-mode card; on the dark night-mode
+ * card it fails WCAG contrast (~2.5:1 against #161a26). Per-scheme
+ * --kids-pager-label color: day stays brand teal, night uses the
+ * brighter wobble teal which clears 4.5:1. */
+.md-footer__direction {
+  display: block;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--kids-pager-label) !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 1;
+  margin-bottom: 0.1rem;
+}
+.md-footer__title {
+  font-family: 'Fredoka', sans-serif;
+  color: var(--kids-ink) !important;
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  /* On a stacked (narrow) layout, the prev card's title element can
+   * collapse to zero visual height if no inner block content forces
+   * it. Explicit min-height keeps both cards the same height and
+   * prevents the prev card from appearing empty next to the icon. */
+  min-height: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.md-footer__title .md-ellipsis {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--kids-ink) !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+.md-footer__button.md-icon {
+  color: var(--kids-teal) !important;
+  flex-shrink: 0;
+}
+.md-footer__button.md-icon svg {
+  fill: var(--kids-teal);
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Below the pager: the institutional byline + license line. Sits on
+ * top of the mint hill, so we use a soft white pill background to
+ * keep the text legible against the green. */
+.md-footer-meta {
+  background-color: transparent;
+  color: var(--kids-ink);
+  border-top: none;
+}
+.md-footer-meta__inner {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 0.8rem 2rem;
+}
+/* Material's stock partials/copyright.html renders:
+ *   <div class="md-copyright">
+ *     <div class="md-copyright__highlight">{{ config.copyright }}</div>
+ *     Made with <a href="...">Material for MkDocs</a>
+ *   </div>
+ *
+ * The highlight block (byline + license + about link) gets the white
+ * pill. The trailing "Made with Material for MkDocs" sits below it
+ * smaller and softer, like the docs site's attribution. */
+/* Material's footer-meta-inner is a flex row by default; override so
+ * the copyright block is centered as a column, not pushed left. */
+.md-footer-meta__inner {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+}
+.md-copyright {
+  color: var(--kids-body-soft) !important;
+  text-align: center;
+  font-size: 0.68rem;
+  line-height: 1.7;
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+.md-copyright a {
+  color: var(--kids-body-soft) !important;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.md-copyright a:hover {
+  color: var(--kids-teal) !important;
+  border-bottom-color: var(--kids-teal-soft);
+}
+
+/* Byline pill: sits directly under the pager cards as a quieter
+ * "third card in the same row family." Same surface, same radius, but
+ * a softer shadow so the pager reads as the active element (it's the
+ * interactive nav) and the byline reads as the footer-of-the-footer.
+ * No vertical gap between the pager and the pill — they're one unit. */
+.md-copyright__highlight {
+  background-color: var(--kids-card);
+  border-radius: 18px;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--kids-ink) !important;
+  margin: 0 auto 0.6rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(var(--kids-shadow-rgb), 0.04),
+              0 4px 10px rgba(var(--kids-shadow-rgb), 0.06);
+  max-width: 100%;
+  width: 100%;
+}
+[data-md-color-scheme="default"] .md-copyright__highlight {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.md-copyright__highlight em {
+  color: var(--kids-ink) !important;
+  font-weight: 600;
+  font-style: italic;
+}
+/* Middot separator between the license citation and the About nav link.
+ * Quieter than the surrounding text so the two links read as distinct
+ * items rather than two siblings of a license sentence. */
+.md-copyright__sep {
+  display: inline-block;
+  margin: 0 0.5rem;
+  color: var(--kids-body-soft);
+  opacity: 0.7;
+}
+.md-copyright__highlight a {
+  color: var(--kids-ink) !important;
+  font-weight: 500;
+  border-bottom: 1px solid var(--kids-teal);
+}
+.md-copyright__highlight a:hover {
+  color: var(--kids-teal) !important;
+  border-bottom-color: var(--kids-ink);
+}
+.md-footer-meta em,
+.md-footer-meta__inner em {
+  color: var(--kids-ink) !important;
+  font-weight: 600;
+  font-style: italic;
+}
+/* Override Material's default white footer link color with high specificity */
+.md-footer .md-footer-meta a,
+.md-footer-meta__inner a,
+.md-footer-meta__inner > p a {
+  color: var(--kids-teal) !important;
+  text-decoration: none;
+  border-bottom: 1px solid var(--kids-teal-soft);
+  font-weight: 500;
+  opacity: 1;
+}
+.md-footer .md-footer-meta a:hover,
+.md-footer-meta__inner a:hover,
+.md-footer-meta__inner > p a:hover {
+  color: var(--kids-ink) !important;
+  border-bottom-color: var(--kids-ink);
+}
+
+/* Pager stacks on narrow screens. Two things this media query needs
+ * to fix that Material's defaults get wrong for a kids' booklet:
+ *
+ * 1. Material hides .md-footer__link--prev .md-footer__title at
+ *    mobile widths (its convention: "prev becomes icon-only on
+ *    mobile, only show the next page title"). For a sequential
+ *    booklet pager that's wrong — readers need to see BOTH
+ *    directions named to know which chapter is back vs. forward.
+ *
+ * 2. When stacked column-wise, the cards default to their natural
+ *    content width rather than the full column width, and prev/next
+ *    end up unequal. Force both to stretch edge-to-edge of the
+ *    parent column so they read as a pair, not two floating cards.
+ *
+ * Also tighten the vertical padding so each card is shorter — they
+ * don't need to be button-sized targets when they're the only thing
+ * at the bottom of the page. */
+@media (max-width: 600px) {
+  .md-footer__inner.md-grid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .md-footer__link {
+    width: 100%;
+    padding: 0.65rem 1rem;
+  }
+  .md-footer__link--prev .md-footer__title {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/* ---------- Hero (Khan-style asymmetric) ------------------------------- */
+
+.kids-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 2rem 0 3rem;
+  margin-bottom: 2rem;
+}
+
+.kids-hero-text { padding-right: 0.5rem; }
+
+.kids-hero-text h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 3.4rem;
+  font-weight: 600;
+  color: var(--kids-ink);
+  line-height: 1.05;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.kids-hero-text p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--kids-body);
+  margin-bottom: 1.75rem;
+}
+
+.kids-hero-art {
+  text-align: center;
+}
+
+.kids-hero-illustration {
+  max-width: 100%;
+  width: 100%;
+  max-height: 22rem;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(var(--kids-shadow-rgb), 0.12));
+}
+
+/* Below ~720px: stack vertically, illustration first. */
+@media (max-width: 720px) {
+  .kids-hero {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    text-align: center;
+    padding: 1rem 0 2rem;
+  }
+  .kids-hero-art { order: -1; }
+  .kids-hero-text { padding-right: 0; }
+  .kids-hero-text h1 { font-size: 2.4rem; }
+  .kids-hero-illustration { max-height: 16rem; }
+}
+
+/* Hide MkDocs-rendered H1 and tag chips on pages that have a .kids-hero. */
 .md-typeset:has(.kids-hero) > h1:first-of-type { display: none; }
 .md-typeset:has(.kids-hero) ~ .md-tags,
 .md-typeset:has(.kids-hero) .md-tags,
 article.md-typeset:has(.kids-hero) > .md-tags { display: none; }
 article:has(.kids-hero) > .md-tags { display: none; }
 
-/* Inline character thumbnails */
+/* ---------- Buttons (Khan-style big rounded pills) --------------------- */
+
+.kids-button {
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-radius: 999px;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+  letter-spacing: 0.005em;
+  margin: 0.25rem 0.35rem 0.25rem 0;
+}
+.kids-button:hover,
+.kids-button:focus {
+  transform: translateY(-1px);
+}
+
+.kids-button--primary {
+  background-color: var(--kids-teal);
+  color: #ffffff !important;
+  box-shadow: 0 2px 0 var(--kids-ink), 0 6px 14px rgba(14, 96, 130, 0.25);
+}
+.kids-button--primary:hover,
+.kids-button--primary:focus {
+  background-color: var(--kids-button-primary-hover-bg);
+  box-shadow: 0 2px 0 var(--kids-ink), 0 8px 18px rgba(14, 96, 130, 0.35);
+}
+
+.kids-button--secondary {
+  background-color: var(--kids-tint);
+  color: var(--kids-ink) !important;
+  box-shadow: inset 0 0 0 2px var(--kids-rule);
+}
+.kids-button--secondary:hover,
+.kids-button--secondary:focus {
+  background-color: var(--kids-card);
+  box-shadow: inset 0 0 0 2px var(--kids-teal-soft);
+}
+
+.kids-button--disabled {
+  background-color: var(--kids-tint);
+  color: var(--kids-body-soft) !important;
+  box-shadow: inset 0 0 0 2px var(--kids-rule);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.kids-button--disabled:hover { transform: none; }
+
+/* ---------- Booklet cover (landing page for a single booklet) --------- */
+
+.kids-booklet-cover {
+  text-align: center;
+  padding: 1rem 0 2rem;
+  margin-bottom: 1rem;
+}
+.kids-booklet-cover img {
+  max-width: 22rem;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1.5rem;
+  filter: drop-shadow(0 8px 20px rgba(var(--kids-shadow-rgb), 0.15));
+}
+.kids-booklet-cover h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: var(--kids-ink);
+  margin: 0.5rem 0 0.5rem;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+.kids-booklet-tagline {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.15rem;
+  color: var(--kids-body-soft);
+  margin: 0 auto 1.5rem;
+  max-width: 32rem;
+  line-height: 1.5;
+}
+.kids-booklet-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem auto 0;
+}
+
+/* Hide MkDocs-rendered H1 and tag chips on pages with a booklet cover. */
+.md-typeset:has(.kids-booklet-cover) > h1:first-of-type { display: none; }
+.md-typeset:has(.kids-booklet-cover) ~ .md-tags,
+.md-typeset:has(.kids-booklet-cover) .md-tags { display: none; }
+
+/* ---------- Booklet list (the /booklets/ index page) ------------------ */
+
+/* List of booklets — no card chrome, each entry is an asymmetric row
+ * (cover left, text right) sitting directly on the page. With one
+ * booklet today, it reads as a clean hero; with N booklets, the rows
+ * stack with whitespace between, like a small library. */
+.kids-booklet-list {
+  margin: 2rem 0 3rem;
+}
+
+.kids-booklet-row {
+  display: grid;
+  grid-template-columns: 14rem 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+.kids-booklet-row + .kids-booklet-row {
+  border-top: 1px solid var(--kids-rule);
+}
+
+/* Booklet-row cover: same quiet treatment as the home-hero cover —
+ * soft drop shadow, no hover-bloat. The cover is decoration that
+ * happens to be a lightboxable picture (click to zoom); the "Read"
+ * button is the navigation. No transform on hover so the picture
+ * doesn't compete with the button for the click-me signal. */
+.kids-booklet-row-art img {
+  width: 100%;
+  height: auto;
+  max-width: 14rem;
+  display: block;
+  filter: drop-shadow(0 8px 16px rgba(var(--kids-shadow-rgb), 0.12));
+}
+
+.kids-booklet-row-text h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+.kids-booklet-row-text h3 a {
+  border-bottom: none;
+  color: var(--kids-ink) !important;
+}
+.kids-booklet-row-text h3 a:hover,
+.kids-booklet-row-text h3 a:focus {
+  color: var(--kids-teal) !important;
+}
+.kids-booklet-row-text p {
+  margin: 0.5rem 0 1rem;
+}
+
+@media (max-width: 600px) {
+  .kids-booklet-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1rem;
+  }
+  .kids-booklet-row-art img {
+    max-width: 12rem;
+    margin: 0 auto;
+  }
+}
+
+/* ---------- Inline character thumbnails ------------------------------- */
+
 .kids-thumb {
   display: inline-block;
   vertical-align: middle;
@@ -336,30 +1012,19 @@ article:has(.kids-hero) > .md-tags { display: none; }
   margin: 0 0.25rem;
 }
 
-/* ---------- Drift slot (asset gated on ADR Step 1) --------------------- */
-
-.kids-drift {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.08;
-}
-@media (prefers-reduced-motion: reduce) {
-  .kids-drift { display: none; }
-}
-
-/* ---------- Print-friendly --------------------------------------------- */
+/* ---------- Print-friendly ------------------------------------------- */
 
 @media print {
   .md-header, .md-sidebar, .md-tabs, .md-footer { display: none; }
+  body {
+    color: #000;
+    background: #fff;
+    background-image: none;
+  }
   .md-content {
     background: #fff;
-    box-shadow: none;
-    border-radius: 0;
     padding: 0;
     margin: 0;
   }
-  body { color: #000; background: #fff; }
+  .kids-button { display: none; }
 }
