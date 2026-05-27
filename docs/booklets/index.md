@@ -25,7 +25,10 @@ Small stories about AI, for kids and the adults near them. Each title in the *Bo
 
 A small story about a robot, and the friend who tried to throw him off balance. Ten plans, ten fixes, and a quiet way to tell a steady AI from a wobbly one.
 
-[Read →](boop-and-wobble-meet/index.md) &nbsp; · &nbsp; [PDF](boop-and-wobble-meet/downloads/boop-and-wobble-meet.pdf)
+<div class="kids-booklet-row-actions" markdown>
+[Read →](boop-and-wobble-meet/index.md){ .kids-button .kids-button--primary }
+[Download PDF](boop-and-wobble-meet/downloads/boop-and-wobble-meet.pdf){ .kids-button .kids-button--secondary }
+</div>
 
 </div>
 

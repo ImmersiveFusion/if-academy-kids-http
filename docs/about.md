@@ -26,4 +26,16 @@ Immersive Fusion pays for it. There's nothing to buy on these pages, no email to
 
 Our [full editorial commitments](commitments.md) — what we publish, what we don't, how we handle mistakes — are written down in one place so a careful reader can hold us to them.
 
+## Where this book lives
+
+The words and pictures on this site are kept on a website called GitHub, at [github.com/ImmersiveFusion/if-academy-kids-http](https://github.com/ImmersiveFusion/if-academy-kids-http). You don't need an account, and you don't need to know what programming is, to use it.
+
+For a parent or a teacher, this means three practical things:
+
+- **You can get a copy.** The full text, the illustrations, and the printable PDFs are all available there for download. No sign-up, no email, no paywall.
+- **You can use it.** The [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license lets any school, library, or family print, copy, translate, or adapt these booklets for non-commercial use without asking us first.
+- **You can suggest a change.** If you spot a mistake or a sentence that misses, you can tell us in the open, where other readers can see it too. We'd rather be corrected in public than be quietly wrong.
+
+We put it there because a booklet meant for classrooms should be easy for a classroom to actually reach — easy to download, easy to share, easy to mark up.
+
 *— by Immersive Fusion, 2026-05-25*
