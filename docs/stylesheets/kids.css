@@ -14,14 +14,15 @@
 
 /* ---------- Palette ----------------------------------------------------- */
 
+/* Brand colors shared across both schemes (day and night). */
 :root {
-  /* IF brand teal (Wobble's color) — retained as accent for brand
-   * continuity. Used sparingly. */
   --kids-teal:        #0e6082;
   --kids-teal-soft:   #4ab0bf;
   --kids-wobble:      #4ec5b8;
+}
 
-  /* Page palette — warm white with mint hill */
+/* Day scheme: warm white page, mint hill, navy ink. */
+[data-md-color-scheme="default"] {
   --kids-page:        #fdfbf6;   /* very faint cream; not pure white */
   --kids-card:        #ffffff;
   --kids-ink:         #1a2f4a;   /* deep navy ink — heading color */
@@ -38,6 +39,17 @@
   --kids-sun:         #ffc94a;
   --kids-coral:       #ff8a6b;
 
+  /* Speech bubble colors */
+  --kids-bubble-bg:        #ffffff;
+  --kids-bubble-border:    var(--kids-teal-soft);
+  --kids-bubble-shadow:    rgba(74, 176, 191, 0.18);
+  --kids-bubble-shadow-2:  rgba(26, 47, 74, 0.10);
+
+  /* Header / chrome */
+  --kids-header-bg:        var(--kids-card);
+  --kids-search-bg:        var(--kids-tint);
+  --kids-button-secondary-bg:  var(--kids-tint);
+
   --md-primary-fg-color:        var(--kids-ink);
   --md-primary-fg-color--light:  var(--kids-teal-soft);
   --md-primary-fg-color--dark:   var(--kids-ink);
@@ -52,6 +64,60 @@
   --md-default-fg-color--lightest: var(--kids-rule);
   --md-typeset-color:            var(--kids-body);
   --md-typeset-a-color:          var(--kids-teal);
+  --md-footer-bg-color:          transparent;
+  --md-footer-bg-color--dark:    transparent;
+  --md-footer-fg-color:          var(--kids-body);
+  --md-footer-fg-color--light:   var(--kids-body-soft);
+  --md-footer-fg-color--lighter: var(--kids-body-soft);
+}
+
+/* Night scheme: deep indigo sky, darker forest hill, warm dark cards.
+ * Same illustration, same brand teal. Speech bubbles stay light cream
+ * so dialogue glows against the night sky like a lit window.
+ * Heading "ink" inverts to a soft warm cream so titles read clearly. */
+[data-md-color-scheme="kids-night"] {
+  --kids-page:        #0f1a30;   /* deep indigo night sky */
+  --kids-card:        #1a2742;   /* warm-dark card surface, slightly lifted */
+  --kids-ink:         #f0e6d2;   /* warm cream — heading color (inverted) */
+  --kids-body:        #e0d8c4;   /* warm cream body text */
+  --kids-body-soft:   #a39c8a;
+  --kids-rule:        #2a3a5a;
+  --kids-tint:        #1f2c48;
+
+  /* Darker forest hill at the bottom of the viewport */
+  --kids-hill:        #2a4a3a;
+  --kids-hill-deep:   #1b3527;
+
+  --kids-sun:         #ffc94a;
+  --kids-coral:       #ff8a6b;
+
+  /* Speech bubbles: warm cream against the dark sky, so dialogue
+   * reads as a "lit window" against the night. Border is the brighter
+   * wobble teal so the bubble outline pops on dark. */
+  --kids-bubble-bg:        #f5efe0;
+  --kids-bubble-border:    var(--kids-wobble);
+  --kids-bubble-shadow:    rgba(78, 197, 184, 0.25);
+  --kids-bubble-shadow-2:  rgba(0, 0, 0, 0.35);
+
+  /* Header / chrome */
+  --kids-header-bg:        #14213a;   /* slightly darker than the card */
+  --kids-search-bg:        #1f2c48;
+  --kids-button-secondary-bg:  #1f2c48;
+
+  --md-primary-fg-color:        var(--kids-wobble);
+  --md-primary-fg-color--light:  var(--kids-teal-soft);
+  --md-primary-fg-color--dark:   var(--kids-teal);
+  --md-primary-bg-color:         var(--kids-card);
+  --md-primary-bg-color--light:  var(--kids-body-soft);
+  --md-accent-fg-color:          var(--kids-wobble);
+  --md-accent-fg-color--transparent: rgba(78, 197, 184, 0.18);
+  --md-default-bg-color:         var(--kids-page);
+  --md-default-fg-color:         var(--kids-body);
+  --md-default-fg-color--light:  var(--kids-body-soft);
+  --md-default-fg-color--lighter: var(--kids-body-soft);
+  --md-default-fg-color--lightest: var(--kids-rule);
+  --md-typeset-color:            var(--kids-body);
+  --md-typeset-a-color:          var(--kids-wobble);
   --md-footer-bg-color:          transparent;
   --md-footer-bg-color--dark:    transparent;
   --md-footer-fg-color:          var(--kids-body);
@@ -128,17 +194,30 @@ body, .md-typeset {
  * the conversation, not part of a wall of text. */
 .md-typeset blockquote {
   position: relative;
-  background: #ffffff;
-  border: 2px solid var(--kids-teal-soft);
+  background: var(--kids-bubble-bg);
+  border: 2px solid var(--kids-bubble-border);
   border-radius: 28px;
   padding: 1.5rem 1.75rem;
   margin: 2.25rem 0 2.75rem 2rem;
   font-style: italic;
-  color: var(--kids-ink);
+  /* Bubble text is always dark navy ink, even in night mode — the
+   * bubble itself is a lit-window cream surface, not a dark surface. */
+  color: #1a2f4a;
   font-size: 1.1em;
   line-height: 1.55;
-  box-shadow: 0 6px 0 rgba(74, 176, 191, 0.18),
-              0 10px 28px rgba(26, 47, 74, 0.10);
+  box-shadow: 0 6px 0 var(--kids-bubble-shadow),
+              0 10px 28px var(--kids-bubble-shadow-2);
+}
+
+/* Override speaker label color inside the bubble — needs to stay teal
+ * even in night mode, against the cream bubble background, NOT the
+ * inverted wobble-teal accent that night mode uses elsewhere. */
+[data-md-color-scheme="kids-night"] .md-typeset blockquote strong {
+  color: var(--kids-teal);
+}
+[data-md-color-scheme="kids-night"] .md-typeset blockquote em,
+[data-md-color-scheme="kids-night"] .md-typeset blockquote i {
+  color: #2e2c2a;
 }
 
 /* No tail. Speech bubbles in this booklet have no speaker character
@@ -252,11 +331,11 @@ body {
   background-position: bottom center, bottom center;
 }
 
-/* Header: plain white, no shadow, hairline rule. */
+/* Header: matches the page surface, no shadow, hairline rule. */
 .md-header,
 .md-header--shadow,
 .md-header--lifted {
-  background-color: var(--kids-card) !important;
+  background-color: var(--kids-header-bg) !important;
   color: var(--kids-ink);
   box-shadow: none !important;
   border-bottom: 1px solid var(--kids-rule);
@@ -345,7 +424,7 @@ body {
 
 /* Search */
 .md-search__form {
-  background-color: var(--kids-tint);
+  background-color: var(--kids-search-bg);
   border-radius: 999px;
 }
 .md-search__input,
@@ -453,7 +532,7 @@ body {
   padding: 1rem 0.8rem 2rem;
 }
 .md-footer-meta__inner > p {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--kids-card);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 24px;
@@ -464,6 +543,9 @@ body {
   margin: 0;
   text-align: center;
   box-shadow: 0 1px 3px rgba(26, 47, 74, 0.06);
+}
+[data-md-color-scheme="default"] .md-footer-meta__inner > p {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 .md-footer-meta em,
 .md-footer-meta__inner em {
@@ -594,7 +676,7 @@ article:has(.kids-hero) > .md-tags { display: none; }
 }
 .kids-button--secondary:hover,
 .kids-button--secondary:focus {
-  background-color: #ffffff;
+  background-color: var(--kids-card);
   box-shadow: inset 0 0 0 2px var(--kids-teal-soft);
 }
 

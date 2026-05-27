@@ -41,13 +41,23 @@ theme:
     - content.code.copy
     - content.tabs.link
   palette:
-    # Single light scheme. Picture-book publication does not need a dark
-    # mode (the reference set — Khan Academy Kids, ABCmouse, SplashLearn —
-    # all single-scheme). Removing the toggle reduces visual chrome in
-    # the header and matches the reference aesthetic.
-    scheme: default
-    primary: white
-    accent: cyan
+    # Two schemes: warm-white "day" (warm white page, mint hill) and
+    # indigo "night" (deep blue sky, darker forest hill, warm dark cards).
+    # Same illustration carries across; speech bubbles stay light so they
+    # glow against the night sky like lit windows. Toggle lives in the
+    # header.
+    - scheme: default
+      primary: white
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to night
+    - scheme: kids-night
+      primary: white
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to day
   # Font is set by docs/stylesheets/kids.css (Quicksand body,
   # Fredoka display). Disabled here so Material does not
   # also load Roboto from Google.
