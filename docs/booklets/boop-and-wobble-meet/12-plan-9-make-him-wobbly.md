@@ -12,9 +12,9 @@ Sam shook their head. **"I'll build Boop in three rooms, connected by doorways."
 
 Sam built three rooms:
 
-- **Front room:** the **client** — what you see and click on (a chat window, a voice, a VR panel).
-- **Middle room:** the **brain** — the thinking part.
-- **Back room:** the **engine** — the part that does the actual brain work.
+- **Front room:** the **client**, what you see and click on (a chat window, a voice, a VR panel).
+- **Middle room:** the **brain**, the thinking part.
+- **Back room:** the **engine**, the part that does the actual brain work.
 
 The rooms only talked to each other through the doorways. You could redo the back room without touching the front room. You could repaint the front room without bothering the brain.
 

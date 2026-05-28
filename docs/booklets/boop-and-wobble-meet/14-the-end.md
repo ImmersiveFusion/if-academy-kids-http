@@ -8,7 +8,7 @@ tags: [booklet, chapter]
 
 Wobble sat down on a rock and grinned. Every plan had been blocked.
 
-Boop kept doing his job — listening to Sam, picking the right tools, asking before risky things, remembering what mattered, telling the truth, and staying inside his safety guards.
+Boop kept doing his job, listening to Sam, picking the right tools, asking before risky things, remembering what mattered, telling the truth, and staying inside his safety guards.
 
 Wobble looked at Sam.
 

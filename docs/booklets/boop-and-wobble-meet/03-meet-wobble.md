@@ -12,7 +12,7 @@ You know **Wreck-It Ralph**? The big guy whose whole job is to bonk the building
 
 Wobble was Sam's Ralph.
 
-Wobble's job was to find every weak spot, every way Boop could get tripped up — and try them all. Not because Wobble was mean. Because **that's how Boop would get steady enough to actually help people.**
+Wobble's job was to find every weak spot, every way Boop could get tripped up, and try them all. Not because Wobble was mean. Because **that's how Boop would get steady enough to actually help people.**
 
 Wobble looked at Boop and grinned.
 
@@ -22,4 +22,4 @@ Wobble came up with 10 plans. Each plan was meant to trip Boop up in a different
 
 But Sam was paying attention. For each one of Wobble's plans, Sam built a piece of Boop to stay standing.
 
-This is the story of those 10 plans — and the 10 things Sam built to keep Boop steady.
+This is the story of those 10 plans, and the 10 things Sam built to keep Boop steady.
