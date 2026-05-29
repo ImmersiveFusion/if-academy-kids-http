@@ -10,7 +10,7 @@ tags: [booklet, credits]
 
 ## Acknowledgments
 
-This booklet references *Wreck-It Ralph* — the 2012 animated film and its characters Ralph and Felix — as a frame for explaining the relationship between people who build things and people who try to break things on purpose. The reference is used for commentary and educational illustration only.
+This booklet references *Wreck-It Ralph*, the 2012 animated film and its characters Ralph and Felix, as a frame for explaining the relationship between people who build things and people who try to break things on purpose. The reference is used for commentary and educational illustration only.
 
 **Wreck-It Ralph, Ralph, Fix-It Felix Jr., and related characters are trademarks of The Walt Disney Company.** This publication is an independent educational work. It is not affiliated with, sponsored by, endorsed by, or otherwise connected to The Walt Disney Company or its subsidiaries.
 

@@ -12,9 +12,9 @@ Sam grinned. **"I'll make Boop ASK before doing anything."**
 
 Sam built a traffic light into Boop:
 
-- 🟢 **GREEN** — small, safe stuff. Just go.
-- 🟡 **YELLOW** — medium stuff. Ask once. Remember the answer.
-- 🔴 **RED** — big stuff. Ask EVERY time. No exceptions.
+- 🟢 **GREEN**, small, safe stuff. Just go.
+- 🟡 **YELLOW**, medium stuff. Ask once. Remember the answer.
+- 🔴 **RED**, big stuff. Ask EVERY time. No exceptions.
 
 But the traffic light wasn't the only thing. Sometimes you don't want to wait for the next red light. Sometimes you just want Boop to **stop, right now**.
 

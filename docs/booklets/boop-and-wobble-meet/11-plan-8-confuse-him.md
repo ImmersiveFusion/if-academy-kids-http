@@ -20,6 +20,6 @@ Tell him *"the thingy with the hat"* and Boop guesses you might mean a snowman, 
 
 > 🧦 **Like your best friend.** You can say *"you know, the thingy"* and your best friend goes *"oh, you mean the sock?"* Most computers can't do that. Boop can.
 
-That's also why a kid who can't type yet can still talk to Boop with their voice — or a kid whose first language is Spanish or Bulgarian can ask in Spanish or Bulgarian. Boop doesn't need you to know the right word in the right language. He just needs you to try.
+That's also why a kid who can't type yet can still talk to Boop with their voice, or a kid whose first language is Spanish or Bulgarian can ask in Spanish or Bulgarian. Boop doesn't need you to know the right word in the right language. He just needs you to try.
 
 Wobble's eighth plan: foiled.

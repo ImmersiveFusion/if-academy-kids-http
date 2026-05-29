@@ -14,7 +14,7 @@ hide:
 
 # A small publication about AI, for kids.
 
-You're going to grow up with AI. So are your friends. We write here to help you think about it — not how to build it, but how to use it well and tell a good one from a wobbly one.
+You're going to grow up with AI. So are your friends. We write here to help you think about it, not how to build it, but how to use it well and tell a good one from a wobbly one.
 
 [Start with Boop and Wobble Meet →](booklets/boop-and-wobble-meet/index.md){ .kids-button .kids-button--primary }
 
@@ -30,7 +30,7 @@ You're going to grow up with AI. So are your friends. We write here to help you 
 
 ## What lives here
 
-We are an observability company — we watch software systems for a living. The work has taught us things about how AI behaves when no one is looking, and we think those things are worth saying in plain words a kid can read.
+We are an observability company, we watch software systems for a living. The work has taught us things about how AI behaves when no one is looking, and we think those things are worth saying in plain words a kid can read.
 
 Today there is one booklet. More will follow when there is something true to say.
 

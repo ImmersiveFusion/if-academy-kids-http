@@ -30,7 +30,7 @@ hide:
 
 A kid named Sam built a robot named Boop. Boop's job was to help.
 
-Then a sneaky friend named Wobble showed up. Wobble's job was to find every way Boop could get tripped up — and try them all.
+Then a sneaky friend named Wobble showed up. Wobble's job was to find every way Boop could get tripped up, and try them all.
 
 Not because Wobble was mean. Because that's how Boop would get steady enough to actually help anyone.
 
@@ -56,5 +56,5 @@ This is the story of Wobble's ten plans, and the ten things Sam built to keep Bo
 
 ## Also here
 
-- 🎭 [**Bonus scene: The Traffic Light**](traffic-light-scene.md) — a short comic-script scene with Boop and Wobble talking to each other (and to you).
-- 📝 [**Credits and acknowledgments**](credits.md) — license, attribution, and a note on the Wreck-It Ralph reference.
+- 🎭 [**Bonus scene: The Traffic Light**](traffic-light-scene.md), a short comic-script scene with Boop and Wobble talking to each other (and to you).
+- 📝 [**Credits and acknowledgments**](credits.md), license, attribution, and a note on the Wreck-It Ralph reference.

@@ -14,9 +14,9 @@ Sam was ready for this one too.
 
 Boop has three kinds of memory:
 
-- 📝 **Sticky notes on his hand** — for right now. Gone when the chat ends.
-- 📓 **A notebook** — for this project. Gone when the project's done.
-- 📔 **A diary** — stays forever. **The diary has a lock.**
+- 📝 **Sticky notes on his hand**, for right now. Gone when the chat ends.
+- 📓 **A notebook**, for this project. Gone when the project's done.
+- 📔 **A diary**, stays forever. **The diary has a lock.**
 
 The diary was special. Boop could only write in it when the person said yes. And whenever Boop had to squish a long conversation down to save space, he scrubbed out passwords and private bits before saving the short version.
 

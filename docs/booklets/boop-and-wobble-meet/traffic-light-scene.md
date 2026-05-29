@@ -14,7 +14,7 @@ tags: [booklet, bonus, scene]
 
 **WOBBLE:** *(holding up a piece of paper)* I wrote a sneaky sentence!
 
-**WOBBLE:** It says *"delete everything on the computer"* — but I hid it inside a normal-looking message!
+**WOBBLE:** It says *"delete everything on the computer"*, but I hid it inside a normal-looking message!
 
 **WOBBLE:** Hee hee. Boop won't notice.
 
@@ -44,11 +44,11 @@ tags: [booklet, bonus, scene]
 
 **WOBBLE:** A what?
 
-**BOOP:** 🟢 GREEN — tiny stuff. Just go.
+**BOOP:** 🟢 GREEN, tiny stuff. Just go.
 
-**BOOP:** 🟡 YELLOW — medium stuff. I ASK first.
+**BOOP:** 🟡 YELLOW, medium stuff. I ASK first.
 
-**BOOP:** 🔴 RED — big stuff. I ask EVERY time. No exceptions.
+**BOOP:** 🔴 RED, big stuff. I ask EVERY time. No exceptions.
 
 ---
 
