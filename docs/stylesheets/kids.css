@@ -196,8 +196,16 @@ body, .md-typeset {
 
 .md-typeset { font-size: 0.85rem; line-height: 1.75; }
 
-/* Reading column: narrow. Picture-book width, not docs width. */
-.md-grid { max-width: 52rem; }
+/* Reading band: aligned to the 68rem family width shared across the academy,
+ * docs, and Knowledge Nexus tiers. The prose measure itself stays narrow via
+ * .md-content__inner below, so the booklet reading column keeps its
+ * picture-book line length even though the band matches its siblings. */
+.md-grid { max-width: 68rem; }
+
+/* Cap the prose measure itself so the wider 68rem band does not lengthen the
+ * booklet's reading lines. Same 44rem cap the general academy uses; keeps the
+ * kids' line length short and picture-book-friendly inside the family band. */
+.md-content__inner { max-width: 44rem; }
 
 /* No card chrome on content. The page is the canvas. */
 .md-content {
