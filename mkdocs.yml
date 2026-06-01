@@ -11,6 +11,9 @@ site_url: https://kids.immersivefusion.academy
 site_description: A small publication about AI, written for kids, by an observability company.
 site_author: Immersive Fusion LLC
 
+# Local dev server address (overridable with `mkdocs serve -a HOST:PORT`)
+dev_addr: '127.0.0.1:8010'
+
 # Repository
 repo_name: if-academy-kids-http
 repo_url: https://github.com/ImmersiveFusion/if-academy-kids-http
