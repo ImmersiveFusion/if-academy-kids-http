@@ -196,8 +196,21 @@ body, .md-typeset {
 
 .md-typeset { font-size: 0.85rem; line-height: 1.75; }
 
-/* Reading column: narrow. Picture-book width, not docs width. */
-.md-grid { max-width: 52rem; }
+/* Reading band: aligned to the 68rem family width shared across the academy,
+ * docs, and Knowledge Nexus tiers. The prose measure itself stays narrow via
+ * .md-content__inner below, so the booklet reading column keeps its
+ * picture-book line length even though the band matches its siblings. */
+.md-grid { max-width: 68rem; }
+
+/* Cap the prose measure itself so the wider 68rem band does not lengthen the
+ * booklet's reading lines. Same 44rem cap the general academy uses; keeps the
+ * kids' line length short and picture-book-friendly inside the family band. */
+.md-content__inner { max-width: 44rem; }
+
+/* Exception: the home hero is a two-column layout, not prose. The 44rem cap
+ * squeezes its text column so narrow that the CTA wraps and the pill balloons.
+ * Let the hero page use the full 68rem band; booklet prose keeps the 44rem cap. */
+.md-content__inner:has(.kids-hero) { max-width: 68rem; }
 
 /* No card chrome on content. The page is the canvas. */
 .md-content {
@@ -206,7 +219,7 @@ body, .md-typeset {
   padding: 1rem 1.5rem 4rem;
 }
 
-/* Italic for character voice — Wobble, Boop, anyone speaking. */
+/* Italic for character voice — Wobble, Mosey, anyone speaking. */
 .md-typeset em, .md-typeset i {
   font-style: italic;
   color: var(--kids-teal);

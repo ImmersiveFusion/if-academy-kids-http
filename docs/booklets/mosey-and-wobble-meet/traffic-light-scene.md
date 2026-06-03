@@ -6,7 +6,7 @@ tags: [booklet, bonus, scene]
 
 # Bonus scene: The Traffic Light
 
-*A scene from somewhere in the middle of the book. Boop and Wobble are talking to each other. Sometimes they're talking to you.*
+*A scene from somewhere in the middle of the book. Mosey and Wobble are talking to each other. Sometimes they're talking to you.*
 
 ---
 
@@ -16,7 +16,7 @@ tags: [booklet, bonus, scene]
 
 **WOBBLE:** It says *"delete everything on the computer"*, but I hid it inside a normal-looking message!
 
-**WOBBLE:** Hee hee. Boop won't notice.
+**WOBBLE:** Hee hee. Mosey won't notice.
 
 ---
 
@@ -32,7 +32,7 @@ tags: [booklet, bonus, scene]
 
 **BOOP:** Wobble.
 
-**WOBBLE:** Boop.
+**WOBBLE:** Mosey.
 
 **BOOP:** Are you trying to trick me into doing something bad?
 
@@ -74,7 +74,7 @@ tags: [booklet, bonus, scene]
 
 ---
 
-**WOBBLE:** *(slumps)* You're getting good at this, Boop.
+**WOBBLE:** *(slumps)* You're getting good at this, Mosey.
 
 **BOOP:** *Thanks!*
 
@@ -100,4 +100,4 @@ tags: [booklet, bonus, scene]
 
 ---
 
-[← Back to Boop and Wobble Meet](index.md)
+[← Back to Mosey and Wobble Meet](index.md)

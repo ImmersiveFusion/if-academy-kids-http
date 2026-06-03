@@ -16,13 +16,13 @@ hide:
 
 You're going to grow up with AI. So are your friends. We write here to help you think about it, not how to build it, but how to use it well and tell a good one from a wobbly one.
 
-[Start with Boop and Wobble Meet →](booklets/boop-and-wobble-meet/index.md){ .kids-button .kids-button--primary }
+[Find out how Mosey and Wobble meet →](booklets/mosey-and-wobble-meet/index.md){ .kids-button .kids-button--primary }
 
 </div>
 
 <div class="kids-hero-art" markdown>
 
-![Boop, a small cubic robot with a friendly screen face, standing next to Wobble, a teal jelly-blob with a small smile.](media/boop-and-wobble-cover.png){ .kids-hero-illustration alt="Boop and Wobble" }
+![Mosey, a small cubic robot with a friendly screen face, standing next to Wobble, a teal jelly-blob with a small smile.](media/mosey-and-wobble-cover.png){ .kids-hero-illustration alt="Mosey and Wobble" }
 
 </div>
 

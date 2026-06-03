@@ -6,9 +6,9 @@ tags: [booklet, chapter, plan]
 
 # Plan 9: Make Him Wobbly
 
-> *"OK,"* said Wobble, getting frustrated. *"I'll make Boop SO wobbly that if anyone ever changes ONE piece of him, the whole thing falls over. Then nobody will ever update him. He'll be stuck forever."*
+> *"OK,"* said Wobble, getting frustrated. *"I'll make Mosey SO wobbly that if anyone ever changes ONE piece of him, the whole thing falls over. Then nobody will ever update him. He'll be stuck forever."*
 
-Sam shook their head. **"I'll build Boop in three rooms, connected by doorways."**
+Sam shook their head. **"I'll build Mosey in three rooms, connected by doorways."**
 
 Sam built three rooms:
 

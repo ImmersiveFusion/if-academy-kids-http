@@ -6,7 +6,7 @@ tags: [booklet, chapter, plan]
 
 # Plan 6: Make It Run Forever
 
-> *"What if I put Boop on autopilot,"* said Wobble, *"and just... never let him stop? He'll keep working forever and tire out the whole computer."*
+> *"What if I put Mosey on autopilot,"* said Wobble, *"and just... never let him stop? He'll keep working forever and tire out the whole computer."*
 
 Sam shook their head. **"I'll put speed limits on the autopilot. And the limits CAN'T be turned off."**
 

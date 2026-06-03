@@ -6,7 +6,7 @@ A small publication about AI, written for kids, by an observability company.
 
 ## What this is
 
-The kids' tier of the academy. Where *Boop and Wobble* and future kid-readable booklets live.
+The kids' tier of the academy. Where *Mosey and Wobble* and future kid-readable booklets live.
 
 The academy exists to give anyone — kid or adult — a way to think about AI that is neither fear-mongering nor salvation-mongering. The frame is AI as ally: useful, fallible, requiring your own judgment. We don't sell on these pages.
 
