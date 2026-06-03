@@ -207,6 +207,11 @@ body, .md-typeset {
  * kids' line length short and picture-book-friendly inside the family band. */
 .md-content__inner { max-width: 44rem; }
 
+/* Exception: the home hero is a two-column layout, not prose. The 44rem cap
+ * squeezes its text column so narrow that the CTA wraps and the pill balloons.
+ * Let the hero page use the full 68rem band; booklet prose keeps the 44rem cap. */
+.md-content__inner:has(.kids-hero) { max-width: 68rem; }
+
 /* No card chrome on content. The page is the canvas. */
 .md-content {
   background-color: transparent;
@@ -856,6 +861,8 @@ article:has(.kids-hero) > .md-tags { display: none; }
 
 .kids-button {
   display: inline-block;
+  /* Hug the label so the pill never stretches to a wrapped two-line height. */
+  white-space: nowrap;
   padding: 0.85rem 1.5rem;
   font-family: 'Fredoka', sans-serif;
   font-size: 1.05rem;
