@@ -6,7 +6,7 @@
 # tags. The formal property name ("Immersive Fusion Academy (Kids)" per
 # SP-065 lock) is preserved in copyright, license, and business artifacts;
 # it does not need to be the visible nav label on every page.
-site_name: Kids Academy
+site_name: IF Kids Academy
 site_url: https://kids.immersivefusion.academy
 site_description: A small publication about AI, written for kids, by an observability company.
 site_author: Immersive Fusion LLC
@@ -26,7 +26,7 @@ edit_uri: edit/main/docs
 # "Source on GitHub" link belongs in that lower line (see the
 # overrides/partials/footer.html pager-only override), not here in
 # the byline pill.
-copyright: '<em>by Immersive Fusion.</em> Published under <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license noopener">Creative Commons BY-NC 4.0</a> <span class="md-copyright__sep" aria-hidden="true">&middot;</span> <a href="/about/">About</a> <span class="md-copyright__sep" aria-hidden="true">&middot;</span> <a href="/how-this-is-made/">How this is made</a><br><span class="kids-sister-link">For grown-up readers: <a href="https://immersivefusion.academy">immersivefusion.academy</a></span>'
+copyright: '<em>by Immersive Fusion.</em> Published under <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license noopener">Creative Commons BY-NC 4.0</a> <span class="md-copyright__sep" aria-hidden="true">&middot;</span> <a href="/about/">About</a> <span class="md-copyright__sep" aria-hidden="true">&middot;</span> <a href="/how-this-is-made/">How this is made</a><br><span class="kids-sister-link">For grown-up readers: <a href="https://immersivefusion.academy">immersivefusion.academy</a></span><br><span class="kids-trademark-notice">Mosey and Wobble are trademarks of Immersive Fusion LLC.</span>'
 
 watch:
   - docs
@@ -113,7 +113,26 @@ plugins:
       minify_html: true
   - redirects:
       redirect_maps:
-        # site-specific entries; starts empty, grows as content moves happen
+        # Boop -> Mosey booklet rename (2026-06-03). Keeps the career-day
+        # pamphlet / QR-code URL alive after the directory slug changed.
+        booklets/boop-and-wobble-meet/index.md: booklets/mosey-and-wobble-meet/index.md
+        booklets/boop-and-wobble-meet/01-why-we-wrote-this-down.md: booklets/mosey-and-wobble-meet/01-why-we-wrote-this-down.md
+        booklets/boop-and-wobble-meet/02-the-beginning.md: booklets/mosey-and-wobble-meet/02-the-beginning.md
+        booklets/boop-and-wobble-meet/03-meet-wobble.md: booklets/mosey-and-wobble-meet/03-meet-wobble.md
+        booklets/boop-and-wobble-meet/04-plan-1-mix-everyone-up.md: booklets/mosey-and-wobble-meet/04-plan-1-mix-everyone-up.md
+        booklets/boop-and-wobble-meet/05-plan-2-make-it-useless.md: booklets/mosey-and-wobble-meet/05-plan-2-make-it-useless.md
+        booklets/boop-and-wobble-meet/06-plan-3-stump-it-with-hard-questions.md: booklets/mosey-and-wobble-meet/06-plan-3-stump-it-with-hard-questions.md
+        booklets/boop-and-wobble-meet/07-plan-4-teach-it-to-lie.md: booklets/mosey-and-wobble-meet/07-plan-4-teach-it-to-lie.md
+        booklets/boop-and-wobble-meet/08-plan-5-trick-the-robot.md: booklets/mosey-and-wobble-meet/08-plan-5-trick-the-robot.md
+        booklets/boop-and-wobble-meet/09-plan-6-make-it-run-forever.md: booklets/mosey-and-wobble-meet/09-plan-6-make-it-run-forever.md
+        booklets/boop-and-wobble-meet/10-plan-7-peek-at-its-memory.md: booklets/mosey-and-wobble-meet/10-plan-7-peek-at-its-memory.md
+        booklets/boop-and-wobble-meet/11-plan-8-confuse-him.md: booklets/mosey-and-wobble-meet/11-plan-8-confuse-him.md
+        booklets/boop-and-wobble-meet/12-plan-9-make-him-wobbly.md: booklets/mosey-and-wobble-meet/12-plan-9-make-him-wobbly.md
+        booklets/boop-and-wobble-meet/13-plan-10-slip-through-the-rules.md: booklets/mosey-and-wobble-meet/13-plan-10-slip-through-the-rules.md
+        booklets/boop-and-wobble-meet/14-the-end.md: booklets/mosey-and-wobble-meet/14-the-end.md
+        booklets/boop-and-wobble-meet/15-what-this-story-is-really-about.md: booklets/mosey-and-wobble-meet/15-what-this-story-is-really-about.md
+        booklets/boop-and-wobble-meet/traffic-light-scene.md: booklets/mosey-and-wobble-meet/traffic-light-scene.md
+        booklets/boop-and-wobble-meet/credits.md: booklets/mosey-and-wobble-meet/credits.md
 
 # Markdown extensions
 markdown_extensions:
