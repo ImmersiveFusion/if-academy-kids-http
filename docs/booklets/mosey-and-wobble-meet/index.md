@@ -1,5 +1,5 @@
 ---
-title: Boop and Wobble Meet
+title: Mosey and Wobble Meet
 diataxis: explanation
 tags: [booklet, explanation]
 hide:
@@ -10,16 +10,16 @@ hide:
 
 <div class="kids-booklet-cover" markdown>
 
-![Boop, a small cubic robot with a friendly screen face, standing next to Wobble, a teal jelly-blob with a small smile.](../../media/boop-and-wobble-cover.png){ alt="Boop and Wobble Meet" }
+![Mosey, a small cubic robot with a friendly screen face, standing next to Wobble, a teal jelly-blob with a small smile.](../../media/mosey-and-wobble-cover.png){ alt="Mosey and Wobble Meet" }
 
-# Boop and Wobble Meet
+# Mosey™ and Wobble™ Meet
 
 <p class="kids-booklet-tagline">A small story about a robot, and the friend who tried to throw him off balance.</p>
 
 <div class="kids-booklet-actions" markdown>
 
 [Start reading →](01-why-we-wrote-this-down.md){ .kids-button .kids-button--primary }
-[Download PDF](downloads/boop-and-wobble-meet.pdf){ .kids-button .kids-button--secondary }
+[Download PDF](downloads/mosey-and-wobble-meet.pdf){ .kids-button .kids-button--secondary }
 <span class="kids-button kids-button--disabled" title="Coming soon">Print and fold</span>
 
 </div>
@@ -28,13 +28,13 @@ hide:
 
 ## What's inside
 
-A kid named Sam built a robot named Boop. Boop's job was to help.
+A kid named Sam built a robot named Mosey. Mosey's job was to help.
 
-Then a sneaky friend named Wobble showed up. Wobble's job was to find every way Boop could get tripped up, and try them all.
+Then a sneaky friend named Wobble showed up. Wobble's job was to find every way Mosey could get tripped up, and try them all.
 
-Not because Wobble was mean. Because that's how Boop would get steady enough to actually help anyone.
+Not because Wobble was mean. Because that's how Mosey would get steady enough to actually help anyone.
 
-This is the story of Wobble's ten plans, and the ten things Sam built to keep Boop standing.
+This is the story of Wobble's ten plans, and the ten things Sam built to keep Mosey standing.
 
 ## Chapters
 
@@ -56,5 +56,5 @@ This is the story of Wobble's ten plans, and the ten things Sam built to keep Bo
 
 ## Also here
 
-- 🎭 [**Bonus scene: The Traffic Light**](traffic-light-scene.md), a short comic-script scene with Boop and Wobble talking to each other (and to you).
+- 🎭 [**Bonus scene: The Traffic Light**](traffic-light-scene.md), a short comic-script scene with Mosey and Wobble talking to each other (and to you).
 - 📝 [**Credits and acknowledgments**](credits.md), license, attribution, and a note on the Wreck-It Ralph reference.

@@ -13,8 +13,8 @@ PSD and other editable sources for the rendered assets that live under
 
 - `favicon.psd`: source for the site favicon set rendered to
   `docs/favicon.ico` (and any sized PNG variants).
-- `boop-and-wobble-cover.psd`: source for the cover illustration rendered
-  to `docs/media/boop-and-wobble-cover.png` (and any WebP variants).
+- `mosey-and-wobble-cover.psd`: source for the cover illustration rendered
+  to `docs/media/mosey-and-wobble-cover.png` (and any WebP variants).
 - `og-image.psd`: source for `docs/media/og-image.png` (1200x630 social
   card) if/when a static OG image is shipped.
 

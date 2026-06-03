@@ -16,7 +16,7 @@ These booklets are written with AI assistance. We are telling you that plainly, 
 
 An AI helps draft and shape the writing. A person reads every line, decides what stays and what gets cut, checks that it is true and right for a child, and is the one who says a booklet is ready. The machine helps; the person decides. When a sentence is wrong, it is wrong because a person let it through, and fixing it is a person's job.
 
-That is the same lesson the booklets teach. In *Boop and Wobble Meet*, a kid named Sam builds the robot, watches it, and is the one in charge of stopping it when something feels wrong. We work the same way Sam does. The robot does not get to be the one in charge. The person does. The name on this publication is *Immersive Fusion*, and the name is there because the deciding was ours.
+That is the same lesson the booklets teach. In *Mosey and Wobble Meet*, a kid named Sam builds the robot, watches it, and is the one in charge of stopping it when something feels wrong. We work the same way Sam does. The robot does not get to be the one in charge. The person does. The name on this publication is *Immersive Fusion*, and the name is there because the deciding was ours.
 
 ## Why we don't put a "written by humans" sticker on it
 

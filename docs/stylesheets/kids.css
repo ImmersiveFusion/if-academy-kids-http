@@ -219,7 +219,7 @@ body, .md-typeset {
   padding: 1rem 1.5rem 4rem;
 }
 
-/* Italic for character voice — Wobble, Boop, anyone speaking. */
+/* Italic for character voice — Wobble, Mosey, anyone speaking. */
 .md-typeset em, .md-typeset i {
   font-style: italic;
   color: var(--kids-teal);
@@ -861,8 +861,6 @@ article:has(.kids-hero) > .md-tags { display: none; }
 
 .kids-button {
   display: inline-block;
-  /* Hug the label so the pill never stretches to a wrapped two-line height. */
-  white-space: nowrap;
   padding: 0.85rem 1.5rem;
   font-family: 'Fredoka', sans-serif;
   font-size: 1.05rem;

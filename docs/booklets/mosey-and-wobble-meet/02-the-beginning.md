@@ -16,9 +16,9 @@ The robot would live inside the computer. It would listen when Sam asked questio
 
 And, this was the important part, it would always tell the truth.
 
-Sam called it **Boop**.
+Sam called it **Mosey**.
 
-Boop was small and friendly. He didn't have wheels or a face. He just had a brain that listened, a few tools, and a voice that could answer. (And if you tried to hide from Boop, he got a little sad, because he wanted to help you.)
+Mosey was small and friendly. He didn't have wheels or a face. He just had a brain that listened, a few tools, and a voice that could answer. (And if you tried to hide from Mosey, he got a little sad, because he wanted to help you.)
 
 For a few days, things were great.
 

@@ -6,11 +6,11 @@ tags: [booklet, chapter, closing]
 
 # What This Story Is Really About
 
-The story isn't really about Boop.
+The story isn't really about Mosey.
 
-Boop is going to be a lot of different things in your life. A homework helper. A search box that talks back. A drawing assistant. A voice in a car. A face on a screen. People will keep inventing new Boops, and giving them new names, and putting them in new places.
+Mosey is going to be a lot of different things in your life. A homework helper. A search box that talks back. A drawing assistant. A voice in a car. A face on a screen. People will keep inventing new Moseys, and giving them new names, and putting them in new places.
 
-Some of those Boops will be built like Sam built this one, with somebody playing Wobble the whole time, finding the weak spots, building each piece to stay standing.
+Some of those Moseys will be built like Sam built this one, with somebody playing Wobble the whole time, finding the weak spots, building each piece to stay standing.
 
 And some of them won't.
 
