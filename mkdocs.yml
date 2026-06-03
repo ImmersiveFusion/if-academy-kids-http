@@ -26,7 +26,7 @@ edit_uri: edit/main/docs
 # "Source on GitHub" link belongs in that lower line (see the
 # overrides/partials/footer.html pager-only override), not here in
 # the byline pill.
-copyright: '<em>by Immersive Fusion.</em> Published under <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license noopener">Creative Commons BY-NC 4.0</a> <span class="md-copyright__sep" aria-hidden="true">&middot;</span> <a href="/about/">About</a><br><span class="kids-sister-link">For grown-up readers: <a href="https://immersivefusion.academy">immersivefusion.academy</a></span>'
+copyright: '<em>by Immersive Fusion.</em> Published under <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license noopener">Creative Commons BY-NC 4.0</a> <span class="md-copyright__sep" aria-hidden="true">&middot;</span> <a href="/about/">About</a> <span class="md-copyright__sep" aria-hidden="true">&middot;</span> <a href="/how-this-is-made/">How this is made</a><br><span class="kids-sister-link">For grown-up readers: <a href="https://immersivefusion.academy">immersivefusion.academy</a></span>'
 
 watch:
   - docs
