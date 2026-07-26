@@ -1,4 +1,4 @@
-# if-academy-kids-http
+# Immersive Fusion Kids Academy
 
 Source for **kids.immersivefusion.academy** — the kids' tier of the Immersive Fusion academy.
 
