@@ -10,7 +10,7 @@ The kids' tier of the academy. Where *Mosey and Wobble* and future kid-readable 
 
 The academy exists to give anyone — kid or adult — a way to think about AI that is neither fear-mongering nor salvation-mongering. The frame is AI as ally: useful, fallible, requiring your own judgment. We don't sell on these pages.
 
-A general-tier sibling site exists at [immersivefusion.academy](https://immersivefusion.academy), built from [if-academy-general-http](https://github.com/ImmersiveFusion/if-academy-general-http).
+A general-tier sibling site exists at [immersivefusion.academy](https://immersivefusion.academy), built from [academy-general](https://github.com/ImmersiveFusion/academy-general).
 
 ## License
 
@@ -42,7 +42,7 @@ Pushed to `main` deploys to **kids.immersivefusion.academy**. Hosted by Immersiv
 
 ## Repository conventions
 
-This repository follows the `if-{property}-{type}-http` convention of [if-apm-documentation-http](https://github.com/ImmersiveFusion/if-apm-documentation-http) (the IF product documentation site). Sister repository: [if-academy-general-http](https://github.com/ImmersiveFusion/if-academy-general-http) for the adult tier at the academy root domain.
+The `if-{property}-{type}-http` naming convention this repository was built under has been retired. It, the product documentation site, and the general tier have all since dropped the prefix and the suffix. Sister repository: [academy-general](https://github.com/ImmersiveFusion/academy-general) for the adult tier at the academy root domain. The product documentation site, formerly `if-apm-documentation-http`, is now [deepcube-docs](https://github.com/ImmersiveFusion/deepcube-docs).
 
 ---
 

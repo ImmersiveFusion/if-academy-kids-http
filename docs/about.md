@@ -28,7 +28,7 @@ Our [full editorial commitments](commitments.md), what we publish, what we don't
 
 ## Where this book lives
 
-The words and pictures on this site are kept on a website called GitHub, at [github.com/ImmersiveFusion/if-academy-kids-http](https://github.com/ImmersiveFusion/if-academy-kids-http). You don't need an account, and you don't need to know what programming is, to use it.
+The words and pictures on this site are kept on a website called GitHub, at [github.com/ImmersiveFusion/academy-kids](https://github.com/ImmersiveFusion/academy-kids). You don't need an account, and you don't need to know what programming is, to use it.
 
 For a parent or a teacher, this means three practical things:
 

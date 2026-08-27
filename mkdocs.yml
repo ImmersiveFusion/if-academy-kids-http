@@ -1,5 +1,5 @@
 # Conforms to SP-071 shared baseline (.context/current/work/spikes/SP-071-diataxis-docs-restructure/00-shared-baseline.md)
-# Same plugin set, same theme features, same conventions as if-apm-documentation-http and the Knowledge Nexus.
+# Same plugin set, same theme features, same conventions as deepcube-docs and the Knowledge Nexus.
 
 # Project information
 # site_name is the SHORT display label used in the sidebar nav and meta
@@ -15,8 +15,8 @@ site_author: Immersive Fusion LLC
 dev_addr: '127.0.0.1:8010'
 
 # Repository
-repo_name: if-academy-kids-http
-repo_url: https://github.com/ImmersiveFusion/if-academy-kids-http
+repo_name: academy-kids
+repo_url: https://github.com/ImmersiveFusion/academy-kids
 edit_uri: edit/main/docs
 
 # Copyright / byline. Rendered by Material's partials/copyright.html
